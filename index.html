@@ -3,518 +3,534 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pulse Digital Lab creates stunning, high-performing websites with custom designs, SEO optimization, and e-commerce solutions to help your business grow online.">
-    <meta name="keywords" content="web design, website development, SEO, ecommerce, responsive design">
-    <title>Pulse Digital Lab | Premium Web Design & Development</title>
+    <title>Pulse Digital Lab | Professional Web Design & Development Agency in [Your Location]</title>
+    <meta name="description" content="Top-rated web design agency in South Africa. We create fast, mobile-friendly websites that rank higher and convert visitors. Get your Website today!">
+    <meta name="keywords" content="web design, website development, responsive design, SEO-friendly websites, ecommerce websites, business websites, affordable web design, Port Elizabeth web designers, professional website developers">
+
+    <!-- Open Graph / Facebook Meta Tags (for social sharing) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pulsedigitallab.co.za">
+    <meta property="og:title" content="Pulse Digital Lab | Professional Web Design & Development">
+    <meta property="og:description" content="We create stunning, high-performance websites that help businesses grow. Serving South Africa and Port Elizabeth Great web design services.">
+
     
-    <!-- Favicon -->
-    <link rel="icon" href="images/logo.png" type="image/png">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
+    <meta name="description" content="Pulse Digital Lab - Premium websites for R1500 once off with R99pm maintenance. Don't lose customers to competitors with outdated sites!">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon_circular.ico" type="image/x-icon">
+    
+   
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">Pulse<span>Digital</span>Lab</a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#contact" class="btn btn-outline">Get Started</a></li>
-                </ul>
-            </nav>
+    <!-- FOMO Banner -->
+    <div class="fomo-banner">
+        <p><i class="fas fa-bolt"></i> <strong>LIMITED TIME OFFER:</strong> 💸 10% Off get Your Website today! Offer valid until May 31st 2025! <span id="countdown"></span></p>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/reviewed logo.png" alt="Pulse Digital Lab Logo">
+            </div>
+            <div class="nav-links">
+                <a href="#why-us">Why Us</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#portfolio">Work</a>
+                <a href="#testimonials">Reviews</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <h1>Your Business is Losing Customers Without a Website</h1>
+            <p class="subtitle">83% of consumers research online before buying. Don't let your competitors steal your customers!</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-chart-line"></i>
+                    <p>+300% more credibility with a professional site</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Get your website in just 2-3 days</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-wallet"></i>
+                    <p>Only R1650 once-off</p>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="https://wa.me/27677062032?text=I%20am%20interested%20in%20getting%20a%20website" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> Chat Now on WhatsApp
+                </a>
+                <a href="tel:+27677062032" class="call-button">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1>Transform Your Business With <span>Stunning Websites</span></h1>
-                <p>We create custom, SEO-optimized websites that help your business stand out and attract more customers. Get your professional website today!</p>
-                <div class="hero-btns">
-                    <a href="#services" class="btn btn-primary">Our Services</a>
-                    <a href="#portfolio" class="btn btn-outline">View Portfolio</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">100+</span>
-                        <span>Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">98%</span>
-                        <span>Happy Clients</span>
-                    </div>
-                </div>
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <h2>Is This You?</h2>
+        <div class="problem-cards">
+            <div class="problem-card">
+                <i class="fas fa-search"></i>
+                <h3>Invisible Online</h3>
+                <p>Customers can't find you when they search for your services</p>
             </div>
+            <div class="problem-card">
+                <i class="fas fa-user-times"></i>
+                <h3>Losing to Competitors</h3>
+                <p>People choose competitors because they have professional websites</p>
+            </div>
+            <div class="problem-card">
+                <i class="fas fa-question-circle"></i>
+                <h3>No Credibility</h3>
+                <p>Potential customers doubt your legitimacy without an online presence</p>
+            </div>
+        </div>
+        <div class="solution-box">
+            <h3>The Solution: A Professional Website From Just R1650</h3>
+            <a href="#contact" class="cta-button">Get Started Now</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Pulse Digital Lab</h2>
-                    <p>At Pulse Digital Lab, our mission is to create stunning, user-friendly websites that help businesses stand out and grow online. We deliver custom, SEO-optimized solutions designed to drive engagement, boost visibility, and create lasting digital experiences.</p>
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <div>
-                                <h4>Fast Performance</h4>
-                                <p>We build websites that load quickly and perform flawlessly.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <div>
-                                <h4>SEO Optimized</h4>
-                                <p>Our websites are designed to rank well in search engines.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#services" class="btn btn-primary">Explore Our Services</a>
-                </div>
-                <div class="about-image">
-                    <img src="images/team.avif" alt="Our team working">
-                </div>
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us">
+        <h2>Why Choose Pulse Digital Lab?</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-rocket"></i>
+                <h3>Lightning Fast</h3>
+                <p>Your website ready in just 2-3 business days</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Packages</h2>
-                <p>Flexible website solutions for any business type</p>
+            <div class="feature">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile Optimized</h3>
+                <p>Looks perfect on all devices (60% of web traffic is mobile)</p>
             </div>
-            <div class="services-grid">
-                <!-- Basic Package -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Standard Website</h3>
-                        <div class="service-price">R1500 <span>/ once-off</span></div>
-                    </div>
-                    <div class="service-body">
-                        <p>Perfect for small businesses needing an online presence with essential features.</p>
-                        <ul class="service-features">
-                            <li class="feature-included">1-5-Page Custom Design</li>
-                            <li class="feature-included">Mobile Responsive</li>
-                            <li class="feature-included">Basic SEO Setup</li>
-                            <li class="feature-included">Google Business Profile</li>
-                            <li class="feature-included">Free domain (1st year)</li>
-                            <li class="feature-included">Social links</li>
-                            <li class="feature-included">Hosting</li>
-                            <li class="feature-included">Basic Contact Form</li>
-                             <li class="feature-included">Basic Booking form </li>                
-                            <li class="feature-not-included">E-commerce Functionality</li>
-                            <li class="feature-not-included">Advanced Booking/Reservation System</li>                
-                            <li class="feature-not-included">Dashboard & Management system</li>
-
-                        </ul>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-primary">Get Started</a>
-                            <p class="maintenance-option">+ R99/month for maintenance</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pro Package -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <span class="highlight-badge">Most Popular</span>
-                        <h3>Pro Website</h3>
-                        <div class="service-price">R3500 <span>/one-off</span></div>
-                    </div>
-                    <div class="service-body">
-                        <p>Ideal for growing businesses needing more advanced features and functionality.</p>
-                        <ul class="service-features">
-                            <li class="feature-included">10-Page Custom Design</li>
-                            <li class="feature-included">Mobile Responsive</li>
-                            <li class="feature-included">Better SEO Setup</li>
-                            <li class="feature-included">Free domain (1st year)</li>
-                            <li class="feature-included">Google Business Profile</li>
-                            <li class="feature-included">Contact Form</li>
-                            <li class="feature-included">Basic E-commerce (up to 20 products)</li>
-                            <li class="feature-included">Dashboard</li>
-                            <li class="feature-included">advanced Booking/Reservation System</li>
-                            <li class="feature-included">Free Hosting (1st Year)</li>
-                        </ul>
-                        <div class="service-cta">
-                            <a href="#contact" class="btn btn-primary">Get Started</a>
-                            <p class="maintenance-option">+ R99/month for maintenance</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Premium Package -->
-               
+            <div class="feature">
+                <i class="fas fa-search-dollar"></i>
+                <h3>SEO Ready</h3>
+                <p>Built to rank well on Google</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Hosting and Domain registration</h3>
+                <p>Free SSL certificate and Domain registration included</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-edit"></i>
+                <h3>Easy Updates</h3>
+                <p>Optional R99/month maintenance plan available</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-money-bill-wave"></i>
+                <h3>No Hidden Costs</h3>
+                <p>Transparent pricing with no surprises</p>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Work</h2>
-                <p>Check out some of our recent projects</p>
+    <section id="portfolio" class="portfolio">
+        <h2>Our Recent Work</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="images/dentist.JPG" alt="Business Website Example">
+                <div class="overlay">
+                    <h3>Dentist</h3>
+                    <p>Increased bookings by 65%</p>
+                </div>
             </div>
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ecommerce">eCommerce</button>
-                <button class="filter-btn" data-filter="business">Business</button>
-                <button class="filter-btn" data-filter="portfolio">Portfolio</button>
+            <div class="portfolio-item">
+                <img src="images/electrician.JPG" alt="Business Website Example">
+                <div class="overlay">
+                    <h3>Electrician Company</h3>
+                    <p>70%+ more appointment requests</p>
+                </div>
             </div>
-            <div class="portfolio-grid">
-                <!-- Portfolio items will be added here -->
-                <div class="portfolio-item" data-category="ecommerce">
-                    <img src="images/eCommerce.avif" alt="eCommerce website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Online Fashion Store</h3>
-                        <p class="portfolio-category">eCommerce</p>
-                    </div>
+            <div class="portfolio-item">
+                <img src="images/menu.JPG" alt="Business Website Example">
+                <div class="overlay">
+                    <h3>Restaurant Business</h3>
+                    <p>200+ more Reservation requests per week!!!</p>
                 </div>
-                <div class="portfolio-item" data-category="business">
-                    <img src="images/restaurant.avif" alt="Business website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Corporate Business Site</h3>
-                        <p class="portfolio-category">Business</p>
-                    </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="images/theography.JPG" alt="Business Website Example">
+                <div class="overlay">
+                    <h3>Photography Business</h3>
+                    <p>increased Calls and WhatsApp dm's</p>
                 </div>
-                <div class="portfolio-item" data-category="portfolio">
-                    <img src="images/b&b1.avif" alt="Portfolio website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Creative Portfolio</h3>
-                        <p class="portfolio-category">Portfolio</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="ecommerce">
-                    <img src="images/onlinestore.avif" alt="eCommerce website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Tech Gadgets Shop</h3>
-                        <p class="portfolio-category">eCommerce</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="business">
-                    <img src="images/restaurant2.avif" alt="Business website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Restaurant Website</h3>
-                        <p class="portfolio-category">Business</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="portfolio">
-                    <img src="images/portfolio.avif" alt="Portfolio website" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Photography Portfolio</h3>
-                        <p class="portfolio-category">Portfolio</p>
-                    </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/on Sport.JPG" alt="Business Website Example">
+                <div class="overlay">
+                    <h3>Repair services Business</h3>
+                    <p>Leads Increased by 60%!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Clients Say</h2>
-                <p>Don't just take our word for it - hear from our satisfied clients</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"Pulse Digital Lab transformed our online presence. Our new website has increased our leads by 60% in just three months!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
-                        </div>
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>CEO, Fashion Boutique</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"The team at Pulse Digital Lab was professional, creative, and delivered our project ahead of schedule. Highly recommended!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Michael Brown">
-                        </div>
-                        <div class="author-info">
-                            <h4>Michael Brown</h4>
-                            <p>Owner, Tech Solutions</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"From start to finish, Pulse Digital Lab impressed us with their quick replies and personal attention. We always felt like a top priority!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                     <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Michael Brown">
-
-                        </div>
-                        <div class="author-info">
-                            <h4>John N</h4>
-                            <p>Marketing Director</p>
+    <!-- Testimonials Carousel -->
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial-slide active">
+                <div class="testimonial-content">
+                    <p>Pulse Digital Lab built my website in just 2 days! I've gotten so many new customers through my site.</p>
+                    <div class="client-info">
+                        <div>
+                            <h4>Sarah K.</h4>
+                            <p>Dentist</p>
+                            
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>I was skeptical at first because of the low price, but the quality is amazing! My phone hasn't stopped ringing since my site went live.</p>
+                    <div class="client-info">
+                        <div>
+                            <h4>James T.</h4>
+                            <p>Plumbing Business</p>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>They offer monthly maintenance — they update my specials every month and my site always works perfectly. Highly recommend!</p>
+                    <div class="client-info">
+                        <div>
+                            <h4>Lindiwe M.</h4>
+                            <p>Restaurant Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>Incredible value for the price. I expected average results but got a premium, responsive website with great support.</p>
+                    <div class="client-info">
+                        <div>
+                            <h4>Ayanda P.</h4>
+                            <p>Event Planner</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>Thanks to Pulse Digital Lab, I finally have a professional website that matches my brand. Everything works perfectly!</p>
+                    <div class="client-info">
+                        <div>
+                            <h4>Thabo N.</h4>
+                            <p>Photographer</p>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>These guys are super responsive. They updated my site in minutes when I needed urgent changes. I'm impressed!</p>
+                    <div class="client-info">
+                        <div>
+                            <h4>Nokuthula D.</h4>
+                            <p>Online Boutique Owner</p>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        <div class="carousel-controls">
+            <button class="prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section>
-        <div class="container">
-            <div class="cta-section">
-                <div class="cta-bg"></div>
-                <h2>Ready to Grow Your Business Online?</h2>
-                <p>Get started with a stunning, high-performing website today!</p>
-                <a href="#contact" class="btn btn-accent">Get Your Website Now</a>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <h2>Simple, Transparent Pricing</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Basic Website</h3>
+                <div class="price">R1650 <span>once-off</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 5 Page Website</li>
+                    <li><i class="fas fa-check"></i> Mobile Responsive</li>
+                    <li><i class="fas fa-check"></i> Contact Form</li>
+                    <li><i class="fas fa-check"></i> Social Media Integration</li>
+
+                    <li><i class="fas fa-check"></i> Basic SEO Setup</li>
+                    <li><i class="fas fa-check"></i> Free SSL Certificate</li>
+                    <li><i class="fas fa-check"></i> Free Domain Registration</li>
+
+                </ul>
+                <a href="#contact" class="cta-button">Get Started</a>
             </div>
+            <div class="pricing-card popular">
+                <div class="popular-badge">MOST POPULAR</div>
+                <h3>Pro Website</h3>
+                <div class="price">R1850</div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Everything in basic plan</li>                
+
+                   <li><i class="fas fa-check"></i> Advanced SEO </li>                
+                    
+                    
+                    <li><i class="fas fa-check"></i> Performance Optimization</li>
+                                                            
+                    <li><i class="fas fa-check"></i> Google Maps Integration</li>
+                    <li><i class="fas fa-check"></i> Booking System Integration</li>
+                    <li><i class="fas fa-check"></i> Speed Optimization</li> 
+                    <li><i class="fas fa-check"></i> Google Business Profile setup</li> 
+
+                    
+                                      
+                </ul>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+        <div class="guarantee">
+            <i class="fas fa-wrench"></i>
+            <p><strong>We offer maintenance for just R99 pm</strong></p>
+        </div>
+        <div class="guarantee">
+            <i class="fas fa-shield-alt"></i>
+            <p><strong>100% Satisfaction Guarantee:</strong></p>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch with our team for any inquiries or project discussions</p>
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+          <div class="contact-card">
+            <div class="contact-header">
+              <h2>Ready to Grow Your Business?</h2>
+              <p class="contact-subtitle">Get in touch today and let's discuss your website needs</p>
             </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Let's Talk About Your Project</h3>
-                    <p>Fill out the form and our team will get back to you within 24 hours. We're excited to hear about your project!</p>
-                    
-                    <div class="contact-details">
-                        <div class="detail-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>pulsedigitallab@gmail.com</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+27 67 706 2032</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Online Web Agency</span>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+            
+            <div class="contact-options">
+              <div class="contact-option whatsapp-option">
+                <div class="contact-icon">
+                  <i class="fab fa-whatsapp"></i>
                 </div>
-                
-                <div class="contact-form">
-                    <form id="contactForm" action="https://formspree.io/f/meogoydz" method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name*</label>
-                                <input type="text" id="firstName" name="firstName" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name*</label>
-                                <input type="text" id="lastName" name="lastName" class="form-control" required>
-                            </div>
-                        </div>
-                    
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email Address*</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" class="form-control">
-                            </div>
-                        </div>
-                    
-                        <div class="form-group">
-                            <label for="message">Send Us a Message*</label>
-                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
-                        </div>
-                    
-                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-                    
-                        <!-- Success/Error Message Area -->
-                        <div id="formMessage" style="margin-top: 15px;"></div>
-                    </form>
-                    
+                <div class="contact-details">
+                  <h3>WhatsApp</h3>
+                  <a href="https://wa.me/27677062032?text=I%20am%20interested%20in%20getting%20a%20website" class="contact-link">
+                    Message Us Now
+                  </a>
+                </div>
+              </div>
+              
+              <div class="contact-option phone-option">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Call Us</h3>
+                  <a href="tel:+27677062032" class="contact-link">
+                    +27 67 706 2032
+                  </a>
+                </div>
+              </div>
+              
+              <div class="contact-option email-option">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Email</h3>
+                  <a href="mailto:pulsedigitallab@gmail.com" class="contact-link">
+                    pulsedigitallab@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="special-offer">
+              <div class="offer-icon">
+                <i class="fas fa-gift"></i>
+              </div>
+              <div class="offer-content">
+                <p><strong>Limited Time Offer:</strong> 🌟 May Special - 10% Off All Website Packages!</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form-card">
+            <h3>Start Your Project Today</h3>
+            <form id="contactForm" class="website-form" action="https://formspree.io/f/meogoydz" method="POST">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="John Doe" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="business">Business Name</label>
+                <input type="text" id="business" name="business" placeholder="Your Business Name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+27 12 345 6789" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="package">Package Interest</label>
+                <select id="package">
+                  <option value="" disabled selected name="package">Select a package</option>
+                  <option value="basic" name="package">Basic Website (R1650)</option>
+                  <option value="maintenance" name="package">Pro Website (R1850)</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Your Project Details</label>
+                <textarea 
+                name="message"
+                  id="message" 
+                  rows="5" 
+                  placeholder="Tell us about your business and what you need in a website..."
+                  required
+                ></textarea>
+              </div>
+              
+              <div class="form-footer">
+                <button type="submit" class="submit-btn">
+                  <span>Submit</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <!-- Success/Error Message Area -->
+              <div id="formMessage" style="margin-top: 15px;"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    How quickly can I get my website?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Most websites are completed within 2-4 business days after we receive all your content. We work quickly because we understand how important it is for your business to get online fast!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What kind of support do I get after my website is launched?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We offer monthly maintenance for additional content, content updates for just R99 </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do I need the maintenance plan?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>While not required, 90% of our clients choose the maintenance plan because it ensures their website stays updated, secure, and performing well. At just R99/month. </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What information do you need from me?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We'll need your business details, some photos, your services/products information, and any special offers you want to highlight. We'll guide you through the simple process.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="cta-container">
+            <h2>Don't Lose Another Customer to Competitors</h2>
+            <p>Every day without a website means lost opportunities. Let's get your business online today!</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/27XXXXXXXXX?text=I%20want%20a%20website%20for%20my%20business" class="whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Now
+                </a>
+                <a href="tel:+27677062032" class="call-button">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Pulse Digital Lab</h3>
-                    <p>Creating stunning, high-performing websites that help businesses grow online.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Our Packages</h3>
-                    <ul class="footer-links">
-                        <li><a href="#services">Standard Website (R1500)</a></li>
-                        <li><a href="#services">Pro Website (R3500)</a></li>
-                        <li><a href="#services">SEO Optimization</a></li>                        
-                        <li><a href="#services">Responsive design</a></li>
-
-                        <li><a href="#services">Website Maintenance (R99/month)</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt"></i> Online web agency </p>
-                        <p><i class="fas fa-phone"></i> +27 67 706 2032</p>
-                        <p><i class="fas fa-envelope"></i>pulsedigitallab@gmail.com</p>
-                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM - 5PM</p>
-                    </div>
-                </div>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/reviewed logo.png" alt="Pulse Digital Lab">
+                <h3>Pulse Digital Lab</h3>
+                <p>Affordable, professional websites for South African businesses</p>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Pulse Digital Lab. All Rights Reserved. | <a href="#" id="termsLink">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#why-us">Why Choose Us</a></li>
+                    <li><a href="#portfolio">Our Work</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
-        
-            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> <a href="tel:+27677062032">+27 67 706 2032</a></li>
+                    <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/27677062032">WhatsApp</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:pulsedigitallab@gmail.com">pulsedigitallab@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Pulse Digital Lab. All rights reserved.</p>
         </div>
     </footer>
-        <!-- Terms & Conditions Modal -->
-    <div id="termsModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Terms and Conditions</h2>
-            <div class="terms-content">
-              
-            <h2>1. Services</h2>
-            <p>
-                We offer web development services, including but not limited to:
-                <ul>
-                <li>Website design and development</li>
-                <li>Web application development</li>
-                <li>Website maintenance and updates</li>
-                <li>Hosting setup assistance</li>
-                </ul>
-            </p>
 
-            <h2>2. Quotation and Payment</h2>
-            <p>
-                - A <strong>50% upfront deposit</strong> is required before work begins.<br>
-                - The <strong>remaining balance</strong> is due upon project completion and before final delivery or site deployment.<br>
-            </p>
-
-            
-            <h2>3. Client Responsibilities</h2>
-            <p>
-                - The Client must provide all required content (e.g., text, images, branding assets) in a timely manner.<br>
-                - Delays in content submission may impact timelines and delivery.
-            </p>
-
-            <h2>4. Timelines</h2>
-            <p>
-                - Estimated completion dates are outlined in the proposal but may vary based on project scope and client response times, however most projects take 7 - 14 days <br>
-                - We are not liable for missed deadlines due to Client delays or force majeure.
-            </p>
-
-            <h2>5. Intellectual Property</h2>
-            <p>
-                - Upon full payment, the Client owns the final website and its code<br>
-            </p>
-
-            <h2>6. Cancellation and Refunds</h2>
-            <p>
-                - A Client may cancel the project within 24 hours after the deal agreement and a refund will be issued.
-                - If the Client cancels the project after 24 hours the initial deposit is non-refundable.
-            </p>
-
-            <h2>7. Limitation of Liability</h2>
-            <p>
-                - Pulse Digital Lab is not responsible for any damages or loss resulting from website downtime, third-party services, or security breaches after delivery.<br>
-            </p>
-
-            
-            <h2>8. Hosting and Domain</h2>
-                <p>
-                Pulse Digital Lab provides assistance with the purchase, configuration, and management of hosting and domain services on behalf of the Client (Check our services), unless otherwise agreed. These services are provided through third-party vendors, and their respective terms and conditions also apply.<br><br>
-                We aim to ensure reliability and performance but cannot be held liable for any downtime, service interruptions, or limitations caused by the third-party hosting providers.
-                </p>
-
-            <h2>9. Third-Party Services and Integrations</h2>
-                <p>
-                We assist clients in setting up and integrating third-party services, such as payment gateways.
-            </div>
-        </div>
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/27677062032?text=I%20want%20a%20website%20for%20my%20business">
+            <i class="fab fa-whatsapp"></i>
+            <span>Get Your Website</span>
+        </a>
     </div>
 
-
-   <script src="scripts/script.js"></script>
+    <script src="scripts/scripts.js"></script>
 </body>
+</html>
