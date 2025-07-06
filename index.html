@@ -42,8 +42,8 @@
     <!-- FOMO Banner -->
    
 
-    <!-- Hero Section -->
-    <header class="hero">
+   <!-- Header -->
+ <header class="header">
         <nav class="navbar">
             <div class="logo">
                 <img src="images/reviewed logo.png" alt="Pulse Digital Lab Logo">
@@ -51,20 +51,34 @@
             <div class="nav-links">
                 <a href="#why-us">Why Us</a>
                 <a href="#pricing">Pricing</a>
-                <a href="#portfolio">Work</a>
-                <a href="#testimonials">Reviews</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
         </nav>
+    </header>
 
-        <div class="hero-content">
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <a href="#why-us">Why Us</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content container">
             <h1>Your Business is Losing Customers Without a Website</h1>
             <p class="subtitle">83% of consumers research online before buying. Don't let your competitors steal your customers!</p>
            
             <div class="hero-buttons">
-                <a href="https://wa.me/27677062032?text=I%20am%20interested%20in%20getting%20a%20website" class="whatsapp-button">
+                <a href="https://wa.me/27677062032?text=I%20am%20interested" class="whatsapp-button">
                     <i class="fab fa-whatsapp"></i> Chat Now on WhatsApp
                 </a>
                 <a href="tel:+27677062032" class="call-button">
@@ -72,7 +86,7 @@
                 </a>
             </div>
         </div>
-    </header>
+    </section>
 
     <!-- Problem Section -->
     <section class="problem-section">
@@ -95,7 +109,7 @@
             </div>
         </div>
         <div class="solution-box">
-            <h3>The Solution: A Professional Website From Just R1650</h3>
+            <h3>The Solution: A Professional Website From Just R1850</h3>
             <a href="#contact" class="cta-button">Get Started Now</a>
         </div>
     </section>
@@ -139,46 +153,58 @@
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
-        <h2>Our Recent Work</h2>
+    <div class="container">
+        <h2 class="section-title">Our Recent Work</h2>
+        <p class="section-subtitle">Check out some of our latest projects</p>
+        
         <div class="portfolio-grid">
+            <!-- Project 1 -->
             <div class="portfolio-item">
-                <img src="images/dentist.JPG" alt="Business Website Example">
-                <div class="overlay">
-                    <h3>Dentist</h3>
-                    <p>Increased bookings by 65%</p>
+                <div class="portfolio-img-container">
+                    <img src="images/poswa.png" alt="Dentist Website Design">
+                    <div class="overlay">
+                        <h3>Logistics Company</h3>
+                       
+                    </div>
                 </div>
+                <a href="https://poswalogisticsandservices.co.za" class="btn-view-project" target="_blank" rel="noopener noreferrer">View Project</a>
             </div>
+            
+            <!-- Project 2 -->
             <div class="portfolio-item">
-                <img src="images/electrician.JPG" alt="Business Website Example">
-                <div class="overlay">
-                    <h3>Electrician Company</h3>
-                    <p>70%+ more appointment requests</p>
+                <div class="portfolio-img-container">
+                    <img src="images/rose.png" alt="catering website design">
+                    <div class="overlay">
+                        <h3>Catering Company</h3>
+                    </div>
                 </div>
+                <a href="https://roseshomecookedmeals.co.za" class="btn-view-project" target="_blank" rel="noopener noreferrer">View Project</a>
             </div>
+            
+            <!-- Project 3 -->
             <div class="portfolio-item">
-                <img src="images/menu.JPG" alt="Business Website Example">
-                <div class="overlay">
-                    <h3>Restaurant Business</h3>
-                    <p>200+ more Reservation requests per week!!!</p>
+                <div class="portfolio-img-container">
+                    <img src="images/Akhona.png" alt="locksmith website design">
+                    <div class="overlay">
+                        <h3>Locksmith Company</h3>
+                    </div>
                 </div>
+                <a href="https://digital-locksmith.co.za" class="btn-view-project" target="_blank" rel="noopener noreferrer">View Project</a>
             </div>
+            
+            <!-- Project 4 -->
             <div class="portfolio-item">
-                <img src="images/theography.JPG" alt="Business Website Example">
-                <div class="overlay">
-                    <h3>Photography Business</h3>
-                    <p>increased Calls and WhatsApp dm's</p>
+                <div class="portfolio-img-container">
+                    <img src="images/michael.png" alt="Photography Business Website">
+                    <div class="overlay">
+                        <h3>Swimming pool contractor</h3>
+                    </div>
                 </div>
-            </div>
-
-            <div class="portfolio-item">
-                <img src="images/on Sport.JPG" alt="Business Website Example">
-                <div class="overlay">
-                    <h3>Repair services Business</h3>
-                    <p>Leads Increased by 60%!</p>
-                </div>
+                <a href="https://crystalclearpools.co.za" class="btn-view-project" target="_blank" rel="noopener noreferrer">View Project</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Testimonials Carousel -->
     <section id="testimonials" class="testimonials">
@@ -268,57 +294,92 @@
     </section>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
+   <section id="pricing" class="pricing">
+    <div class="container">
         <h2>Simple, Transparent Pricing</h2>
+        <p class="subtitle">Choose the perfect plan for your business needs</p>
+        
         <div class="pricing-cards">
+            <!-- Starter Plan -->
             <div class="pricing-card">
-                <h3>Basic Website</h3>
-                <div class="price">R1650 <span>once-off</span></div>
+                <h3>Business Starter Plan</h3>
+                <div class="price">R1850 <span>once-off</span></div>
                 <ul>
-                    <li><i class="fas fa-check"></i> 5 Page Website</li>
-                    <li><i class="fas fa-check"></i> Mobile Responsive</li>
-                    <li><i class="fas fa-check"></i> Contact Form</li>
-                    <li><i class="fas fa-check"></i> Social Media Integration</li>
-
-                    <li><i class="fas fa-check"></i> Basic SEO Setup</li>
-                    <li><i class="fas fa-check"></i> Free SSL Certificate</li>
-                    <li><i class="fas fa-check"></i> Free Domain Registration</li>
-
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> 1 Page Website</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Mobile Responsive</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Free Domain</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Lifetime Free Hosting</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Social Media Integration</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> 1 Professional Email</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Logo Design</li>
+                    <li><i class="fas fa-times" style="color: #F44336;"></i> Google Business Profile</li>
+                    <li><i class="fas fa-times" style="color: #F44336;"></i> Quote/Booking Form</li>
+                    <li><i class="fas fa-times" style="color: #F44336;"></i>  SEO</li>
+                    <li><i class="fas fa-times" style="color: #F44336;"></i> Advertisement Flyer</li>
+                    <li><i class="fas fa-times" style="color: #F44336;"></i> Google Maps Integration</li>
+                    <li><i class="fas fa-times" style="color: #F44336;"></i> Meta Ads Setup</li>
                 </ul>
                 <a href="#contact" class="cta-button">Get Started</a>
             </div>
+            
+            <!-- Growth Plan -->
             <div class="pricing-card popular">
                 <div class="popular-badge">MOST POPULAR</div>
-                <h3>Pro Website</h3>
-                <div class="price">R1850</div>
+                <h3>Business Growth Plan</h3>
+                <div class="price">R2399 <span>once-off</span></div>
                 <ul>
-                    <li><i class="fas fa-check"></i> Everything in basic plan</li>                
-
-                   <li><i class="fas fa-check"></i> Advanced SEO </li>                
-                    
-                    
-                    <li><i class="fas fa-check"></i> Performance Optimization</li>
-                                                            
-                    <li><i class="fas fa-check"></i> Google Maps Integration</li>
-                    <li><i class="fas fa-check"></i> Booking System Integration</li>
-                    <li><i class="fas fa-check"></i> Speed Optimization</li> 
-                    <li><i class="fas fa-check"></i> Google Business Profile setup</li> 
-
-                    
-                                      
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> 3-5 Page Website</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Mobile Responsive</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Free Domain</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Lifetime Free Hosting</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Social Media Integration</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Logo Design</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Google Business Profile</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Quote/Booking Form</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Basic SEO</li>                    
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> 1 Flyer</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> 3 Professional Emails</li>
+                    <li><i class="fas fa-times" style="color: #F44336;"></i> Google Maps Integration</li>
+                    <li><i class="fas fa-times" style="color: #F44336;"></i> Advanced Meta Ads Setup</li>
+                </ul>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+            
+            <!-- Scaling Plan -->
+            <div class="pricing-card">
+                <h3>Business Scaling Plan</h3>
+                <div class="price">R3299 <span>once-off</span></div>
+                <ul>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> custom Page Website</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Mobile Responsive</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Free Domain</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Lifetime Free Hosting</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Social Media Integration</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Logo Design</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Google Business Profile</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Quote/Booking Form</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Advanced SEO (with keyword research)</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> 3 Advertisement Flyers</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> 5 Professional Emails</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Google Maps Integration</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Meta Ads Setup</li>
                 </ul>
                 <a href="#contact" class="cta-button">Get Started</a>
             </div>
         </div>
-        <div class="guarantee">
-            <i class="fas fa-wrench"></i>
-            <p><strong>We offer maintenance for just R99 pm</strong></p>
+        
+        <div class="guarantees">
+            <div class="guarantee">
+                <i class="fas fa-wrench"></i>
+                <p><strong>We offer maintenance for just R99 pm</strong></p>
+            </div>
+            <div class="guarantee">
+                <i class="fas fa-shield-alt"></i>
+                <p><strong>100% Satisfaction Guarantee</strong></p>
+            </div>
         </div>
-        <div class="guarantee">
-            <i class="fas fa-shield-alt"></i>
-            <p><strong>100% Satisfaction Guarantee:</strong></p>
-        </div>
-    </section>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
@@ -336,7 +397,7 @@
                 </div>
                 <div class="contact-details">
                   <h3>WhatsApp</h3>
-                  <a href="https://wa.me/27677062032?text=I%20am%20interested%20in%20getting%20a%20website" class="contact-link">
+                  <a href="https://wa.me/27677062032?text=I%20am%20interested" class="contact-link">
                     Message Us Now
                   </a>
                 </div>
@@ -360,8 +421,8 @@
                 </div>
                 <div class="contact-details">
                   <h3>Email</h3>
-                  <a href="mailto:pulsedigitallab@gmail.com" class="contact-link">
-                    pulsedigitallab@gmail.com
+                  <a href="admin@pulsedigitallab.co.za" class="contact-link">
+                    admin@pulsedigitallab.co.za
                   </a>
                 </div>
               </div>
@@ -404,8 +465,10 @@
                 <label for="package">Package Interest</label>
                 <select id="package" name="package">
                   <option value="" disabled selected name="package">Select a package</option>
-                  <option value="basic website" name="package">Basic Website (R1650)</option>
-                  <option value="Pro Website" name="package">Pro Website (R1850)</option>
+                  <option value="Business Starter Plan" name="package">Business Starter Plan</option>
+                  <option value="Business Growth Plan" name="package">Business Growth Plan</option>
+                  <option value="Business Scaling Plan" name="package">Business Scaling Plan</option>
+
                 </select>
               </div>
               
@@ -495,7 +558,7 @@
                 <ul>
                     <li><i class="fas fa-phone"></i> <a href="tel:+27677062032">+27 67 706 2032</a></li>
                     <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/27677062032">WhatsApp</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:pulsedigitallab@gmail.com">pulsedigitallab@gmail.com</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:pulsedigitallab@gmail.com">admin@pulsedigitallab.co.za</a></li>
                 </ul>
             </div>
         </div>
@@ -506,9 +569,9 @@
 
     <!-- Floating WhatsApp Button -->
     <div class="floating-whatsapp">
-        <a href="https://wa.me/27677062032?text=I%20want%20a%20website%20for%20my%20business">
+        <a href="https://wa.me/27677062032">
             <i class="fab fa-whatsapp"></i>
-            <span>Get Your Website</span>
+            <span>Inquire</span>
         </a>
     </div>
 
