@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Pulse Digital Lab</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --success: #2ecc71;
+            --white: #ffffff;
+            --whatsapp: #25D366;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .thank-you-section {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .thank-you-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+        
+        .thank-you-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .thank-you-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .action-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .card-text {
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-success {
+            background-color: var(--success);
+        }
+        
+        .btn-success:hover {
+            background-color: #27ae60;
+        }
+        
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+        
+        .discount-code {
+            background-color: var(--light);
+            border: 2px dashed var(--accent);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .whatsapp-share {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--whatsapp);
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 1.5rem;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .action-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Pulse Digital Lab</div>
+            <div class="tagline">Digital Excellence. Real Results.</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="thank-you-section">
+            <div class="thank-you-icon">✓</div>
+            <h1 class="thank-you-title">Thank You for Working With Us!</h1>
+            <p class="thank-you-text">
+                We truly appreciate your trust in Pulse Digital Lab. Your satisfaction is our top priority, 
+                and we're grateful for the opportunity to serve you. We hope your experience exceeded expectations.
+            </p>
+            <a href="https://g.page/r/CXw-J7GiqcDmEBM/review" class="btn" target="_blank" id="reviewBtn">Leave a Review</a>
+        </section>
+        
+        <div class="action-cards">
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3 class="card-title">Refer a Friend</h3>
+                <p class="card-text">
+                    Refer us to your network and receive a <strong>10% discount</strong> on your next service with us!
+                </p>
+                <div class="discount-code" id="discountCode">PULSE10</div>
+                <p>Share your unique code with friends:</p>
+                
+                <!-- WhatsApp Referral Button -->
+                <button class="btn btn-whatsapp" id="whatsappReferral">
+                    💬 Share via WhatsApp
+                </button>
+                
+                <!-- WhatsApp icon button -->
+                <div class="whatsapp-share">
+                    <a href="#" class="whatsapp-btn" id="whatsappIcon" title="Share via WhatsApp">💬</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Pulse Digital Lab. All rights reserved.</p>
+            <div class="contact-info">
+                <p>Email: Admin@pulsedigitallab.co.za | Phone: 067 706 2032</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Generate a unique referral code for each user
+        function generateReferralCode() {
+            let savedCode = localStorage.getItem('userReferralCode');
+            if (!savedCode) {
+                const prefix = "PULSE";
+                const randomNum = Math.floor(1000 + Math.random() * 9000);
+                savedCode = prefix + randomNum;
+                localStorage.setItem('userReferralCode', savedCode);
+            }
+            return savedCode;
+        }
+
+       // Main WhatsApp sharing function
+function shareViaWhatsApp() {
+    const referralCode = generateReferralCode();
+    
+    const message = `Hey! I  worked with Pulse Digital Lab for website design and Google Business listing and they're amazing!
+
+They helped significantly improve my online visibility and I think you'd love their work too.
+
+Text them my referral code "${referralCode}" to get 10% OFF your first service!
+
+Contact Pulse Digital Lab:
+ https://wa.me/27677062032`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+}
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate and display unique referral code
+            const userReferralCode = generateReferralCode();
+            document.getElementById('discountCode').textContent = userReferralCode;
+            
+            // WhatsApp referral buttons
+            document.getElementById('whatsappReferral').addEventListener('click', shareViaWhatsApp);
+            document.getElementById('whatsappIcon').addEventListener('click', function(e) {
+                e.preventDefault();
+                shareViaWhatsApp();
+            });
+            
+            // Track review button clicks (optional)
+            document.getElementById('reviewBtn').addEventListener('click', function() {
+                console.log("Review button clicked");
+            });
+        });
+    </script>
+</body>
+</html>
