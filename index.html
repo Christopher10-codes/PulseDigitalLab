@@ -1,22 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pulse Digital Lab | Professional Web Design for R1650</title>
-    <meta name="description" content="Pulse Digital Lab creates stunning, conversion-focused websites for businesses. Professional web design for just R1650 once off. Get your future-ready website today!">
+    <title>Pulse Digital Lab | Professional Web Design Agency in South Africa</title>
+    <meta name="description" content="Top-rated web design agency in South Africa. Get stunning, mobile-friendly websites for R1650 once-off. SEO optimized, fast loading websites that convert visitors to customers.">
+    <meta name="keywords" content="web design South Africa, website development, SEO, mobile responsive websites, affordable web design, business websites">
+    <meta name="author" content="Pulse Digital Lab">
+    <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="ZA">
+    <meta name="geo.placename" content="South Africa">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Pulse Digital Lab | Professional Web Design Agency">
+    <meta property="og:description" content="Get stunning, mobile-friendly websites for R1650 once-off. SEO optimized websites that convert visitors to customers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pulsedigitallab.co.za">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pulsedigitallab.co.za">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Pulse Digital Lab",
+      "description": "Professional web design agency in South Africa",
+      "url": "https://pulsedigitallab.co.za",
+      "telephone": "+27677062032",
+      "email": "admin@pulsedigitallab.co.za",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ZA"
+      },
+      "serviceType": "Web Design",
+      "areaServed": "South Africa",
+      "priceRange": "R1650"
+    }
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17697722726"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17697722726');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17697722726"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17697722726');
+    </script>
 
     <style>
         :root {
@@ -52,7 +85,7 @@
 
         /* Header & Navigation */
         header {
-            background-color: rgba(18, 18, 18, 0.9);
+            background-color: rgba(18, 18, 18, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
@@ -341,6 +374,7 @@
         /* Process Section */
         .process {
             padding: 100px 0;
+            background-color: var(--gray);
         }
 
         .process-steps {
@@ -410,7 +444,6 @@
         /* Contact Section */
         .contact {
             padding: 100px 0;
-            background-color: var(--gray);
         }
 
         .contact-container {
@@ -572,6 +605,15 @@
             font-size: 0.9rem;
         }
 
+        /* Success and Error Messages */
+        #formMessages {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
         /* Animations */
         @keyframes pulse {
             0% {
@@ -711,7 +753,7 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-               <h1>More Leads. More Sales. Guaranteed.</h1>
+                <h1>More Leads. More Sales. Guaranteed.</h1>
                 <p>Professional web design that converts visitors into customers. Get a stunning, mobile-responsive website for your business at an unbeatable price.</p>
                 <div class="price-tag">Only R1650 Once Off</div>
                 <div class="cta-buttons">
@@ -831,35 +873,34 @@
             </div>
             <div class="contact-container">
                 <div class="contact-form">
-                <form id="websiteForm" action="https://formspree.io/f/meogoydz" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="business">Business Type</label>
-                        <input type="text" id="business" name="business" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" class="form-control" placeholder="Tell us about your website needs..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-                <!-- Success and Error Messages -->
-                <div id="formMessages" style="display: none; margin-top: 20px; padding: 15px; border-radius: 10px; text-align: center;"></div>
-            </div>
-        </div>
+                    <form id="websiteForm" action="https://formspree.io/f/meogoydz" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="business">Business Type</label>
+                            <input type="text" id="business" name="business" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your website needs..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                    <!-- Success and Error Messages -->
+                    <div id="formMessages" style="display: none; margin-top: 20px; padding: 15px; border-radius: 10px; text-align: center;"></div>
+                </div>
 
                 <div class="contact-info">
                     <h3>Let's Build Your Future Online</h3>
@@ -893,8 +934,29 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Portfolio Links -->
+                    <div class="portfolio-links" style="margin-top: 40px;">
+                        <h3 style="margin-bottom: 20px;">View Our Work</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <a href="https://limcleaningcrew.co.za" class="btn btn-secondary" target="_blank" style="padding: 10px 15px; font-size: 0.9rem;">
+                                Cleaning Company
+                            </a>
+                            <a href="https://digital-locksmith.co.za" class="btn btn-secondary" target="_blank" style="padding: 10px 15px; font-size: 0.9rem;">
+                                Locksmith
+                            </a>
+                            <a href="https://poswalogisticsandservices.co.za" class="btn btn-secondary" target="_blank" style="padding: 10px 15px; font-size: 0.9rem;">
+                                Logistics
+                            </a>
+                            <a href="https://sotobelogisticsandremovals.co.za" class="btn btn-secondary" target="_blank" style="padding: 10px 15px; font-size: 0.9rem;">
+                                Removals
+                            </a>
+                            <a href="https://aybgrapher.co.za" class="btn btn-secondary" target="_blank" style="padding: 10px 15px; font-size: 0.9rem;">
+                                Photography
+                            </a>
+                        </div>
+                    </div>
                 </div>
-               
             </div>
         </div>
     </section>
@@ -909,20 +971,7 @@
                 <a href="#process">Process</a>
                 <a href="#contact">Contact</a>
             </div>
-            <div class="social-links">
-                <a href="#" class="social-link">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
+            
             <div class="copyright">
                 &copy; 2025 Pulse Digital Lab. All rights reserved.
             </div>
@@ -955,101 +1004,63 @@
         // Check on scroll
         window.addEventListener('scroll', checkVisibility);
 
-        // Form Submission
-        // Form Submission with Formspree
-document.getElementById('websiteForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const submitButton = this.querySelector('button[type="submit"]');
-    const originalButtonText = submitButton.innerHTML;
-    const formMessages = document.getElementById('formMessages');
-    
-    // Show loading state
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitButton.disabled = true;
-    
-    try {
-        const formData = new FormData(this);
-        
-        const response = await fetch(this.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
+        // Form Submission with Formspree and Redirect
+        document.getElementById('websiteForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            const formMessages = document.getElementById('formMessages');
+            
+            // Show loading state
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.disabled = true;
+            
+            try {
+                const formData = new FormData(this);
+                
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success - redirect to confirmation page
+                    window.location.href = 'confirmation.html';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+                
+            } catch (error) {
+                // Error message
+                formMessages.style.display = 'block';
+                formMessages.style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
+                formMessages.style.border = '1px solid #ff4444';
+                formMessages.style.color = '#ff4444';
+                formMessages.innerHTML = `
+                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                    <h4>Oops! Something went wrong.</h4>
+                    <p>Please try again or contact us directly at admin@pulsedigitallab.co.za</p>
+                `;
+                
+                // Scroll to show error message
+                formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Reset button state
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
+                
+                // Hide message after 10 seconds
+                setTimeout(() => {
+                    formMessages.style.display = 'none';
+                }, 10000);
             }
         });
-        
-        if (response.ok) {
-            // Success message
-            formMessages.style.display = 'block';
-            formMessages.style.backgroundColor = 'rgba(0, 245, 212, 0.1)';
-            formMessages.style.border = '1px solid var(--secondary)';
-            formMessages.style.color = 'var(--secondary)';
-            formMessages.innerHTML = `
-                <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                <h4>Message Sent Successfully!</h4>
-                <p>Thank you for your inquiry. We'll get back to you within 24 hours.</p>
-            `;
-            
-            // Reset form
-            this.reset();
-            
-            // Scroll to show success message
-            formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-        } else {
-            throw new Error('Form submission failed');
-        }
-        
-    } catch (error) {
-        // Error message
-        formMessages.style.display = 'block';
-        formMessages.style.backgroundColor = 'rgba(255, 0, 0, 0.1)';
-        formMessages.style.border = '1px solid #ff4444';
-        formMessages.style.color = '#ff4444';
-        formMessages.innerHTML = `
-            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 10px;"></i>
-            <h4>Oops! Something went wrong.</h4>
-            <p>Please try again or contact us directly at admin@pulsedigitallab.co.za</p>
-        `;
-        
-        // Scroll to show error message
-        formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-    } finally {
-        // Reset button state
-        submitButton.innerHTML = originalButtonText;
-        submitButton.disabled = false;
-        
-        // Hide message after 10 seconds
-        setTimeout(() => {
-            formMessages.style.display = 'none';
-        }, 10000);
-    }
-});
 
-// Add smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if(targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if(targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-            
-            // Close mobile menu if open
-            document.querySelector('nav ul').classList.remove('active');
-        }
-    });
-});
-
-        // Smooth scrolling for anchor links
+        // Add smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
