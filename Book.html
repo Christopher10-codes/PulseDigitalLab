@@ -17,11 +17,8 @@
             --text-main: #0f172a;
             --text-muted: #64748b;
             --border: #e2e8f0;
-            --border-success: #bbf7d0;
-            --border-error: #fecaca;
-            --bg-error: #fef2f2;
             --radius: 12px;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05), 0 20px 25px -5px rgb(0 0 0 / 0.1);
         }
 
         * {
@@ -48,66 +45,18 @@
             background: var(--card-bg);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            padding: 32px 24px;
-            position: relative;
-            overflow: hidden;
+            padding: 24px;
+            transition: all 0.3s ease;
         }
 
-        /* Live Urgency Indicator Banner */
-        .scarcity-banner {
-            background-color: #fff7ed;
-            border: 1px solid #ffedd5;
-            color: #c2410c;
-            padding: 10px 12px;
-            border-radius: 8px;
-            font-size: 0.825rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        /* High-Impact Social Proof Strip */
-        .social-proof-strip {
-            background-color: #f0fdf4;
-            border: 1px solid #dcfce7;
-            color: #15803d;
-            padding: 10px 12px;
-            border-radius: 8px;
-            font-size: 0.825rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #ea580c;
-            border-radius: 50%;
-            animation: pulse 1.6s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.6; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.9); opacity: 0.6; }
-        }
-
+        /* Header Styling */
         .app-header {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .app-header h1 {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             color: var(--text-main);
@@ -115,14 +64,21 @@
         }
 
         .app-header p {
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             color: var(--text-muted);
             font-weight: 500;
         }
 
-        .price-tag {
-            color: var(--text-main);
-            font-weight: 700;
+        .badge {
+            display: inline-block;
+            background-color: #f1f5f9;
+            color: #334155;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 8px;
+            border: 1px solid #e2e8f0;
         }
 
         /* Progress Steps Tracker */
@@ -132,7 +88,6 @@
             align-items: center;
             margin-bottom: 32px;
             position: relative;
-            padding: 0 8px;
         }
 
         .progress-tracker::before {
@@ -156,21 +111,21 @@
             width: 0%;
             background-color: var(--primary);
             z-index: 1;
-            transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: width 0.3s ease;
         }
 
         .step-node {
             position: relative;
             z-index: 2;
-            width: 34px;
-            height: 34px;
+            width: 32px;
+            height: 32px;
             background-color: var(--card-bg);
             border: 2px solid var(--border);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--text-muted);
             transition: all 0.3s ease;
@@ -179,6 +134,7 @@
         .step-node.active {
             border-color: var(--primary);
             color: var(--primary);
+            background-color: var(--card-bg);
             box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
         }
 
@@ -188,24 +144,24 @@
             color: white;
         }
 
-        /* Form Steps Configuration */
+        /* Form Steps */
         .form-step {
             display: none;
         }
 
         .form-step.active {
             display: block;
-            animation: stepSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: fadeIn 0.4s ease forwards;
         }
 
-        @keyframes stepSlideIn {
-            from { opacity: 0; transform: translateX(12px); }
-            to { opacity: 1; transform: translateX(0); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Form Controls */
         .form-group {
-            margin-bottom: 22px;
-            position: relative;
+            margin-bottom: 20px;
         }
 
         .form-group label {
@@ -218,7 +174,7 @@
 
         .form-control {
             width: 100%;
-            padding: 13px 16px;
+            padding: 12px 14px;
             font-size: 0.95rem;
             font-family: inherit;
             border: 1px solid var(--border);
@@ -234,24 +190,6 @@
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        /* Smart Inline Error Signifiers */
-        .form-group.input-error .form-control {
-            border-color: #ef4444 !important;
-            background-color: var(--bg-error);
-        }
-
-        .error-message {
-            color: #b91c1c;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .form-group.input-error .error-message {
-            display: block;
-        }
-
         select.form-control {
             appearance: none;
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
@@ -261,7 +199,7 @@
             padding-right: 40px;
         }
 
-        /* Micro-commitment Option Elements */
+        /* Radio Options Grid */
         .radio-stack {
             display: flex;
             flex-direction: column;
@@ -272,11 +210,11 @@
             position: relative;
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 16px;
+            padding: 14px;
             display: flex;
             align-items: center;
             cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s ease;
         }
 
         .radio-option:hover {
@@ -285,48 +223,46 @@
         }
 
         .radio-option input[type="radio"] {
-            margin-right: 14px;
+            margin-right: 12px;
             accent-color: var(--primary);
             width: 18px;
             height: 18px;
-            cursor: pointer;
         }
 
         .radio-option span {
             font-size: 0.95rem;
             font-weight: 500;
-            color: #334155;
         }
 
         .radio-option.selected {
             border-color: var(--primary);
-            background-color: rgba(37, 99, 235, 0.04);
-            box-shadow: inset 0 0 0 1px var(--primary);
+            background-color: rgba(37, 99, 235, 0.03);
         }
 
+        /* Conditional Logic Container */
         .conditional-field {
             display: none;
             margin-top: 16px;
-            animation: slideDown 0.2s ease forwards;
+            animation: slideDown 0.25s ease forwards;
         }
 
         @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-4px); }
+            from { opacity: 0; transform: translateY(-6px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* System Action Actions Layout */
+        /* Navigation Buttons */
         .btn-container {
             display: flex;
             gap: 12px;
-            margin-top: 32px;
+            margin-top: 28px;
         }
 
         .btn {
             font-family: inherit;
             font-size: 0.95rem;
             font-weight: 600;
-            padding: 14px 22px;
+            padding: 14px 20px;
             border-radius: 8px;
             border: none;
             cursor: pointer;
@@ -334,7 +270,6 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            user-select: none;
         }
 
         .btn-primary {
@@ -360,61 +295,56 @@
         }
 
         .btn:disabled {
-            opacity: 0.5;
+            opacity: 0.6;
             cursor: not-allowed;
         }
 
-        /* Form Lifecycle States Views */
+        /* State UI screens */
         .loading-overlay {
             display: none;
             text-align: center;
-            padding: 48px 0;
+            padding: 40px 0;
         }
 
         .success-screen {
             display: none;
             text-align: center;
-            padding: 24px 8px;
-            animation: fadeIn 0.4s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1); }
+            padding: 32px 12px;
+            animation: fadeIn 0.5s ease forwards;
         }
 
         .success-icon {
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             background: #dcfce7;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
+            margin: 0 auto 20px;
             color: #16a34a;
         }
 
         .success-screen h2 {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
+            margin-bottom: 10px;
         }
 
         .success-screen p {
             font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
+        /* Spinner */
         .spinner {
-            width: 32px;
-            height: 32px;
-            border: 3px solid rgba(37, 99, 235, 0.15);
+            width: 28px;
+            height: 28px;
+            border: 3px solid rgba(255,255,255,0.3);
             border-radius: 50%;
-            border-top-color: var(--primary);
-            animation: spin 0.7s linear infinite;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
         }
 
         @keyframes spin {
@@ -442,40 +372,32 @@ src="https://www.facebook.com/tr?id=4006312262953131&ev=PageView&noscript=1"
 <body>
 
     <div class="app-container" id="applicationWindow">
-        
-      
-
-        <div class="social-proof-strip" id="socialProofStrip">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
-            <span>Over 140 service businesses onboarded in <span id="previousMonth">last month</span></span>
-        </div>
-
         <div id="formContainer">
             <header class="app-header">
                 <h1>Apply for Google Business Profile Setup Slot</h1>
-                <p>Registration Fee: <span class="price-tag">R250 one-time</span></p>
+                <p>R250 one-time setup</p>
+                <span class="badge">Limited Weekly Available</span>
             </header>
 
             <div class="progress-tracker">
                 <div class="progress-line-fill" id="progressLine"></div>
-                <div class="step-node active" id="node1" data-step="1">1</div>
-                <div class="step-node" id="node2" data-step="2">2</div>
-                <div class="step-node" id="node3" data-step="3">3</div>
+                <div class="step-node active" id="node1">1</div>
+                <div class="step-node" id="node2">2</div>
+                <div class="step-node" id="node3">3</div>
             </div>
 
-            <form id="applicationForm" novalidate autocomplete="on">
+            <form id="applicationForm" novalidate>
                 
                 <div class="form-step active" id="step1">
                     <div class="form-group">
-                        <label for="businessName">Business Name</label>
+                        <label for="businessName">Registered or Trading Business Name</label>
                         <input type="text" id="businessName" name="Business Name" class="form-control" placeholder="e.g. Apex Plumbing" required>
-                        <div class="error-message">Business Name is required.</div>
                     </div>
 
                     <div class="form-group">
-                        <label for="businessCategory">Industry</label>
+                        <label for="businessCategory">Core Business Category</label>
                         <select id="businessCategory" name="Business Category" class="form-control" required>
-                            <option value="" disabled selected>Select industry...</option>
+                            <option value="" disabled selected>Select your industry...</option>
                             <option value="Cleaning Company">Cleaning Company</option>
                             <option value="Plumbing">Plumbing</option>
                             <option value="Electrical">Electrical</option>
@@ -483,79 +405,75 @@ src="https://www.facebook.com/tr?id=4006312262953131&ev=PageView&noscript=1"
                             <option value="Dental Practice">Dental Practice</option>
                             <option value="Beauty Salon">Beauty Salon</option>
                             <option value="Restaurant">Restaurant</option>
-                            <option value="Other">Other...</option>
+                            <option value="Other">Other</option>
                         </select>
-                        <div class="error-message">Please select an industry.</div>
                     </div>
 
                     <div class="form-group conditional-field" id="conditionalCategoryWrap">
-                        <label for="customCategory">Specify Industry</label>
-                        <input type="text" id="customCategory" name="Custom Business Category Specified" class="form-control" placeholder="e.g. Logistics & Haulage">
-                        <div class="error-message">Please type your industry.</div>
+                        <label for="customCategory">Please specify your business category</label>
+                        <input type="text" id="customCategory" name="Custom Business Category Specified" class="form-control" placeholder="e.g. Logistics & Freight">
                     </div>
 
                     <div class="form-group">
-                        <label for="cityTown">City / Town</label>
+                        <label for="cityTown">City / Town Location</label>
                         <input type="text" id="cityTown" name="City or Town" class="form-control" placeholder="e.g. Cape Town" required>
-                        <div class="error-message">City or town is required.</div>
                     </div>
 
                     <div class="btn-container">
-                        <button type="button" class="btn btn-primary" onclick="validateStepAndProceed(1, 2)">Continue</button>
+                        <button type="button" class="btn btn-primary" onclick="validateAndGo(1, 2)">Continue Application</button>
                     </div>
                 </div>
 
                 <div class="form-step" id="step2">
                     <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" name="Applicant Name" class="form-control" placeholder="e.g. John Doe" autocomplete="name" required>
-                        <div class="error-message">Your name is required.</div>
+                        <label for="fullName">Applicant Full Name</label>
+                        <input type="text" id="fullName" name="Applicant Name" class="form-control" placeholder="e.g. John Doe" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">WhatsApp Number</label>
-                        <input type="tel" id="phone" name="Contact Number (WhatsApp)" class="form-control" placeholder="e.g. 082 123 4567" autocomplete="tel" required>
-                        <div class="error-message">A contact number is required.</div>
+                        <label for="phone">Phone Number (WhatsApp preferred)</label>
+                        <input type="tel" id="phone" name="Contact Number (WhatsApp)" class="form-control" placeholder="e.g. 082 123 4567" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email </label>
-                        <input type="email" id="email" name="email" class="form-control" autocomplete="email" placeholder="e.g. john@yourfirm.co.za" required>
-                        <div class="error-message">A valid email address is required.</div>
+                        <label for="email">Email Address <span style="font-weight: 400; color: var(--text-muted);">(Optional)</span></label>
+                        <input type="email" id="email" name="Email Address" class="form-control" placeholder="e.g. john@yourfirm.co.za">
                     </div>
 
                     <div class="btn-container">
-                        <button type="button" class="btn btn-secondary" onclick="transitionToStep(1)">Back</button>
-                        <button type="button" class="btn btn-primary" onclick="validateStepAndProceed(2, 3)">Continue</button>
+                        <button type="button" class="btn btn-secondary" onclick="goToStep(1)">Back</button>
+                        <button type="button" class="btn btn-primary" onclick="validateAndGo(2, 3)">Continue Application</button>
                     </div>
                 </div>
 
                 <div class="form-step" id="step3">
                     <div class="form-group">
-                        <label style="margin-bottom: 14px;">When do you want to start?</label>
+                        <label style="margin-bottom: 14px;">When would you like your setup completed?</label>
                         <div class="radio-stack">
-                            <label class="radio-option selected">
-                                <input type="radio" name="Target Setup Velocity" value="Ready to start now" checked onclick="syncRadioElementState(this)">
-                                <span>Start Now/span>
+                            <label class="radio-option">
+                                <input type="radio" name="Target Setup Velocity" value="Ready to start now" checked onclick="handleRadioSelect(this)">
+                                <span>Ready to start now</span>
                             </label>
                             <label class="radio-option">
-                                <input type="radio" name="Target Setup Velocity" value="Next week" onclick="syncRadioElementState(this)">
-                                <span>Next Week</span>
+                                <input type="radio" name="Target Setup Velocity" value="Next week" onclick="handleRadioSelect(this)">
+                                <span>Next week</span>
                             </label>
                             <label class="radio-option">
-                                <input type="radio" name="Target Setup Velocity" value="Next month" onclick="syncRadioElementState(this)">
-                                <span>Next Month</span>
+                                <input type="radio" name="Target Setup Velocity" value="Next month" onclick="handleRadioSelect(this)">
+                                <span>Next month</span>
                             </label>
                             <label class="radio-option">
-                                <input type="radio" name="Target Setup Velocity" value="Not sure" onclick="syncRadioElementState(this)">
-                                <span>Not Sure Yet</span>
+                                <input type="radio" name="Target Setup Velocity" value="Not sure" onclick="handleRadioSelect(this)">
+                                <span>Not sure</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="btn-container">
-                        <button type="button" class="btn btn-secondary" id="backBtnStep3" onclick="transitionToStep(2)">Back</button>
-                        <button type="submit" class="btn btn-primary" id="submitBtn">Submit Application</button>
+                        <button type="button" class="btn btn-secondary" id="finalBackBtn" onclick="goToStep(2)">Back</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <span id="btnText">Submit Application</span>
+                        </button>
                     </div>
                 </div>
 
@@ -563,49 +481,21 @@ src="https://www.facebook.com/tr?id=4006312262953131&ev=PageView&noscript=1"
         </div>
 
         <div id="loadingState" class="loading-overlay">
-            <div class="spinner" style="margin: 0 auto 20px;"></div>
-            <p style="font-weight: 600; font-size: 0.95rem; color: var(--text-main);">Checking slot availability...</p>
+            <div class="spinner" style="margin: 0 auto 16px; border-top-color: var(--primary);"></div>
+            <p style="font-weight: 500; color: var(--text-main);">Processing file data & verifying details...</p>
         </div>
 
         <div id="successState" class="success-screen">
             <div class="success-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
-            <h2>Application Received!</h2>
-            <p>Thank you for applying. We have safely received your details, and our team will contact you shortly with your allocated setup slot.</p>
-            <p style="margin-top: 18px; font-style: italic; border-top: 1px solid var(--border); padding-top: 16px; color: #0f172a; line-height: 1.5;">
-                Congratulations on taking this crucial step for your business. By positioning your services to be discovered online, you are laying the foundation for consistent, long-term growth and ensuring local clients can find you exactly when they need you. Speak soon!
-            </p>
+           <h2>Application Received</h2>
+           <p>Thank you — your application has been received. We are currently reviewing submissions in the order they are received. Once your setup slot is allocated, we will contact you with confirmation and next steps.</p>
         </div>
     </div>
 
     <script>
-        const dateEngine = new Date();
-
-        // 1. Dynamic Local Day Injection
-        const dayOptions = { weekday: 'long' };
-        document.getElementById('currentDay').innerText = new Intl.DateTimeFormat('en-US', dayOptions).format(dateEngine);
-
-        // 2. Dynamic Previous Month Calculation
-        const monthOptions = { month: 'long' };
-        dateEngine.setMonth(dateEngine.getMonth() - 1);
-        document.getElementById('previousMonth').innerText = new Intl.DateTimeFormat('en-US', monthOptions).format(dateEngine);
-
-        // 3. Live Slot Depletion Simulation
-        setTimeout(() => {
-            const slotTarget = document.getElementById('slotCount');
-            if(slotTarget) {
-                slotTarget.style.transition = 'all 0.3s ease';
-                slotTarget.style.color = '#ef4444';
-                slotTarget.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    slotTarget.innerText = '2';
-                    slotTarget.style.transform = 'scale(1)';
-                }, 300);
-            }
-        }, 20000);
-
-        // Dynamic Field Control Mapping Logic
+        // Conditional Framework UI Toggle
         const categorySelect = document.getElementById('businessCategory');
         const conditionalWrap = document.getElementById('conditionalCategoryWrap');
         const customCategoryInput = document.getElementById('customCategory');
@@ -617,44 +507,29 @@ src="https://www.facebook.com/tr?id=4006312262953131&ev=PageView&noscript=1"
             } else {
                 conditionalWrap.style.display = 'none';
                 customCategoryInput.removeAttribute('required');
-                customCategoryInput.closest('.form-group').classList.remove('input-error');
                 customCategoryInput.value = '';
             }
         });
 
-        // Dynamic State UI Handling for Selection Grid Modules
-        function syncRadioElementState(element) {
+        // Interactive Style Mapping for Radio Node Selections
+        function handleRadioSelect(element) {
             document.querySelectorAll('.radio-option').forEach(opt => opt.classList.remove('selected'));
             if (element.checked) {
                 element.closest('.radio-option').classList.add('selected');
             }
         }
+        // Initialize default chosen structural element
+        document.querySelector('.radio-option input[checked]').closest('.radio-option').classList.add('selected');
 
-        // Live Validation Cleaners
-        document.querySelectorAll('.form-control').forEach(input => {
-            input.addEventListener('input', function() {
-                if (this.value.trim() !== "") {
-                    this.closest('.form-group').classList.remove('input-error');
-                }
-            });
-            input.addEventListener('change', function() {
-                if (this.value !== "") {
-                    this.closest('.form-group').classList.remove('input-error');
-                }
-            });
-        });
-
-        // Linear Navigation Engine
-        let activeStepTrack = 1;
-        
-        function transitionToStep(stepNumber) {
+        // Linear Navigation Controller
+        function goToStep(stepNumber) {
             document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
             document.getElementById(`step${stepNumber}`).classList.add('active');
-            activeStepTrack = stepNumber;
-            updateStepperUI(stepNumber);
+            updateProgressTracker(stepNumber);
         }
 
-        function updateStepperUI(currentStep) {
+        function updateProgressTracker(currentStep) {
+            // Percent configurations
             const linePercent = ((currentStep - 1) / 2) * 100;
             document.getElementById('progressLine').style.width = `${linePercent}%`;
 
@@ -673,89 +548,73 @@ src="https://www.facebook.com/tr?id=4006312262953131&ev=PageView&noscript=1"
             }
         }
 
-        // Active Step Level Field Verification Logic
-        function validateStepAndProceed(currentStep, nextStep) {
+        // Inline Validation Engine
+        function validateAndGo(currentStep, nextStep) {
             const stepContainer = document.getElementById(`step${currentStep}`);
-            const targets = stepContainer.querySelectorAll('input[required], select[required]');
-            let functionalPassed = true;
+            const inputs = stepContainer.querySelectorAll('input[required], select[required]');
+            let isValid = true;
 
-            targets.forEach(element => {
-                if (!element.value || element.value.trim() === "") {
-                    functionalPassed = false;
-                    element.closest('.form-group').classList.add('input-error');
-                } else {
-                    element.closest('.form-group').classList.remove('input-error');
+            inputs.forEach(input => {
+                // Basic reset
+                input.style.borderColor = 'var(--border)';
+                
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#ef4444';
                 }
             });
 
-            if (functionalPassed) {
-                transitionToStep(nextStep);
+            if (isValid) {
+                goToStep(nextStep);
             }
         }
 
-        // Capture Desktop Return Keys to improve desktop conversion metrics
-        window.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-                if (activeStepTrack === 1) {
-                    validateStepAndProceed(1, 2);
-                } else if (activeStepTrack === 2) {
-                    validateStepAndProceed(2, 3);
-                }
-            }
-        });
-
-        // Transmission Data Pipeline Architecture via Fetch API
+        // Processing and Transmission Framework via AJAX
         document.getElementById('applicationForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const formContainer = document.getElementById('formContainer');
-            const scarcityBanner = document.getElementById('scarcityBanner');
-            const socialProofStrip = document.getElementById('socialProofStrip');
             const loadingState = document.getElementById('loadingState');
             const successState = document.getElementById('successState');
             const submitBtn = document.getElementById('submitBtn');
-            const backBtn3 = document.getElementById('backBtnStep3');
+            const finalBackBtn = document.getElementById('finalBackBtn');
 
+            // Prevent interface input conflicts
             submitBtn.disabled = true;
-            backBtn3.disabled = true;
+            finalBackBtn.disabled = true;
 
+            // Transition main form component out, show loaders
             formContainer.style.display = 'none';
-            scarcityBanner.style.display = 'none';
-            socialProofStrip.style.display = 'none';
             loadingState.style.display = 'block';
 
-            const payloadData = new FormData(this);
+            const formData = new FormData(this);
 
             fetch('https://formspree.io/f/mnjrkrvv', {
                 method: 'POST',
-                body: payloadData,
+                body: formData,
                 headers: {
                     'Accept': 'application/json'
                 }
             })
-            .then(res => {
+            .then(response => {
                 loadingState.style.display = 'none';
-                if (res.ok) {
+                if (response.ok) {
                     successState.style.display = 'block';
                 } else {
-                    rollbackUI();
-                    alert('Submission error: Server rejected structural form variables.');
+                    // Fail gracefully fallback inside application container
+                    formContainer.style.display = 'block';
+                    submitBtn.disabled = false;
+                    finalBackBtn.disabled = false;
+                    alert('Application transmission error. Please check your data fields and verify connection details.');
                 }
             })
-            .catch(err => {
+            .catch(error => {
                 loadingState.style.display = 'none';
-                rollbackUI();
-                alert('Network timeout routing application profile across data layers.');
-            });
-
-            function rollbackUI() {
                 formContainer.style.display = 'block';
-                scarcityBanner.style.display = 'flex';
-                socialProofStrip.style.display = 'flex';
                 submitBtn.disabled = false;
-                backBtn3.disabled = false;
-            }
+                finalBackBtn.disabled = false;
+                alert('Connection failure processing system application pipeline.');
+            });
         });
     </script>
 </body>
