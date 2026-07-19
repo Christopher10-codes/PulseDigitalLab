@@ -4,6 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Get Roofing Leads - Lead Setup</title>
+  
+  <!-- 1. META PIXEL BASE CODE -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '1480811120756286'); 
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=1480811120756286&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- END META PIXEL BASE CODE -->
+
   <style>
     /* Reset & Core Styling */
     * {
@@ -252,22 +273,22 @@
       <h3>Select your monthly growth goal</h3>
       <div class="packages-stack">
         
-        <!-- Package 1 -->
-        <div class="package-card" onclick="assignPackage(this, '20-25 Leads for R1250/mo')">
+        <!-- Package 1 (R1250) -->
+        <div class="package-card" onclick="assignPackage(this, 'starter_r1250')">
           <h4>Starter Plan</h4>
           <span class="leads-count">20 - 25 Leads</span>
           <div class="price-tag">R1,250<span>/mo</span></div>
         </div>
         
-        <!-- Package 2 -->
-        <div class="package-card" onclick="assignPackage(this, '35-40 Leads for R1750/mo')">
+        <!-- Package 2 (R1750) -->
+        <div class="package-card" onclick="assignPackage(this, 'growth_r1750')">
           <h4>Growth Plan</h4>
           <span class="leads-count">35 - 40 Leads</span>
           <div class="price-tag">R1,750<span>/mo</span></div>
         </div>
         
-        <!-- Package 3 (Premium) -->
-        <div class="package-card premium" onclick="assignPackage(this, '40-60 Leads for R3000/mo')">
+        <!-- Package 3 (R3000 Premium) -->
+        <div class="package-card premium" onclick="assignPackage(this, 'scaling_r3000')">
           <div class="popular-badge">Most Growth</div>
           <h4>Scaling Plan</h4>
           <span class="leads-count">40 - 60 Leads</span>
@@ -303,7 +324,6 @@
   const maxSteps = 4;
 
   function navigateToStep(targetStep) {
-    // 1. Run basic browser HTML validation checks on the current visible fields
     const currentContainer = document.getElementById(`step${activeStep}`);
     const inputFields = currentContainer.querySelectorAll('input, textarea');
     let isStepValid = true;
@@ -315,7 +335,6 @@
       }
     });
 
-    // 2. Specialized check for the package screen
     if (activeStep === 3 && !document.getElementById('selectedPackage').value) {
       alert("Please choose a budget package to continue.");
       isStepValid = false;
@@ -323,31 +342,32 @@
 
     if (!isStepValid) return;
 
-    // 3. Switch step panels smoothly
     currentContainer.classList.remove('form-step-active');
     activeStep = targetStep;
     document.getElementById(`step${activeStep}`).classList.add('form-step-active');
     
-    // 4. Smooth dynamic animation for the top progress metric
     const visualProgress = ((activeStep - 1) / (maxSteps - 1)) * 100;
     document.getElementById('progressBar').style.width = `${visualProgress}%`;
   }
 
   function assignPackage(cardElement, stringCode) {
-    // Clear old chosen classes
     document.querySelectorAll('.package-card').forEach(item => item.classList.remove('selected'));
-    
-    // Apply state to newly clicked element
     cardElement.classList.add('selected');
-    
-    // Inject value into hidden field
     document.getElementById('selectedPackage').value = stringCode;
+
+    // Firing distinct Custom Actions instantly upon selection for premium plans
+    if (typeof fbq !== 'undefined') {
+      if (stringCode === 'growth_r1750') {
+        fbq('trackCustom', 'SelectedGrowthPlan');
+      } else if (stringCode === 'scaling_r3000') {
+        fbq('trackCustom', 'SelectedScalingPlan');
+      }
+    }
   }
 
   function processFormSubmit(event) {
     event.preventDefault();
     
-    // Extracting all field data cleanly
     const company = document.getElementById('companyName').value;
     const city = document.getElementById('city').value;
     const services = document.getElementById('services').value;
@@ -355,23 +375,45 @@
     const name = document.getElementById('fullName').value;
     const email = document.getElementById('email').value;
 
-    // 1. Construct the message body beautifully with line breaks
+    let packageReadableName = "";
+    
+    // Firing the Standard Lead conversion event with deep tier breakdown payload data
+    if (typeof fbq !== 'undefined') {
+      if (chosenPackage === 'growth_r1750') {
+        packageReadableName = "35-40 Leads for R1750/mo";
+        fbq('track', 'Lead', {
+          content_name: 'Growth Plan',
+          value: 1750.00,
+          currency: 'ZAR'
+        });
+      } else if (chosenPackage === 'scaling_r3000') {
+        packageReadableName = "40-60 Leads for R3000/mo";
+        fbq('track', 'Lead', {
+          content_name: 'Scaling Plan',
+          value: 3000.00,
+          currency: 'ZAR'
+        });
+      } else {
+        packageReadableName = "20-25 Leads for R1250/mo";
+        fbq('track', 'Lead', {
+          content_name: 'Starter Plan',
+          value: 1250.00,
+          currency: 'ZAR'
+        });
+      }
+    }
+
     const messageText = 
       `Hi! I just filled out the lead form setup details:\n\n` +
       `🏢 *Company Name:* ${company}\n` +
       `📍 *City:* ${city}\n` +
       `🛠️ *Services:* ${services}\n` +
-      `📦 *Selected Package:* ${chosenPackage}\n\n` +
+      `📦 *Selected Package:* ${packageReadableName}\n\n` +
       `👤 *Contact Name:* ${name}\n` +
       `✉️ *Email:* ${email}`;
 
-    // 2. Target South African phone number in international format (+27)
     const formattedPhoneNumber = "27677062032";
-
-    // 3. Safely encode the message payload for URL compliance
     const encodedMessage = encodeURIComponent(messageText);
-
-    // 4. Generate the API link and open it seamlessly in a new tab
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${formattedPhoneNumber}&text=${encodedMessage}`;
     
     window.open(whatsappUrl, '_blank');
