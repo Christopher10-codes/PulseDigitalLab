@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Roofing Leads - Lead Setup</title>
+  <style>
+    /* Reset & Core Styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #f7fafc;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Main Form Container */
+    .form-container {
+      width: 100%;
+      max-width: 550px;
+      background: #ffffff;
+      padding: 35px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      margin-bottom: 35px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: #ff6b00; /* High-visibility orange matching your ad creatives */
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Step Typography & Visibility */
+    .form-step {
+      display: none;
+    }
+    .form-step-active {
+      display: block;
+      animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes slideUpFade {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .form-step h3 {
+      font-size: 22px;
+      color: #1a202c;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    /* Input Fields */
+    .input-group {
+      margin-bottom: 22px;
+    }
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #4a5568;
+    }
+    .input-group input, 
+    .input-group textarea {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #2d3748;
+      transition: all 0.2s ease;
+      background: #f8fafc;
+    }
+    .input-group input:focus, 
+    .input-group textarea:focus {
+      border-color: #ff6b00;
+      background: #ffffff;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.1);
+    }
+    textarea {
+      height: 110px;
+      resize: none;
+    }
+
+    /* Interactive Package Cards */
+    .packages-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 25px;
+    }
+    .package-card {
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px 20px;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .package-card:hover {
+      transform: translateY(-2px);
+      border-color: #cbd5e0;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.04);
+    }
+    .package-card.selected {
+      border-color: #ff6b00;
+      background-color: #fffaf0;
+    }
+    
+    /* Premium Highlight State */
+    .package-card.premium.selected {
+      border-color: #e53e3e;
+      background-color: #fff5f5;
+    }
+    
+    .package-card h4 {
+      font-size: 16px;
+      color: #718096;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .leads-count {
+      font-size: 20px;
+      color: #1a202c;
+      font-weight: 700;
+    }
+    .price-tag {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      font-weight: 800;
+      color: #1a202c;
+    }
+    .price-tag span {
+      font-size: 13px;
+      font-weight: 500;
+      color: #a0aec0;
+    }
+
+    /* Most Popular Badge */
+    .popular-badge {
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: #e53e3e;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Control Buttons */
+    .btn-action {
+      width: 100%;
+      background: #ff6b00;
+      color: #ffffff;
+      border: none;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-action:hover {
+      background: #e05e00;
+    }
+    .btn-submit {
+      background: #25D366; /* WhatsApp Green */
+    }
+    .btn-submit:hover {
+      background: #128C7E;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <!-- Progress Tracker -->
+  <div class="progress-container">
+    <div id="progressBar" class="progress-bar"></div>
+  </div>
+
+  <form id="interactiveLeadForm" onsubmit="processFormSubmit(event)">
+    
+    <!-- STEP 1: Core Details -->
+    <div class="form-step form-step-active" id="step1">
+      <h3>Tell us about your business</h3>
+      <div class="input-group">
+        <label for="companyName">Company Name</label>
+        <input type="text" id="companyName" required placeholder="e.g., XYZ Roofing Solutions">
+      </div>
+      <div class="input-group">
+        <label for="city">City You Operate In</label>
+        <input type="text" id="city" required placeholder="e.g., Johannesburg">
+      </div>
+      <button type="button" class="btn-action" onclick="navigateToStep(2)">Next Step &rarr;</button>
+    </div>
+
+    <!-- STEP 2: Services Offered -->
+    <div class="form-step" id="step2">
+      <h3>What services do you offer?</h3>
+      <div class="input-group">
+        <label for="services">List your core services</label>
+        <textarea id="services" required></textarea>
+      </div>
+      <button type="button" class="btn-action" onclick="navigateToStep(3)">Choose Your Target Package &rarr;</button>
+    </div>
+
+    <!-- STEP 3: Package Goal Selection -->
+    <div class="form-step" id="step3">
+      <h3>Select your monthly growth goal</h3>
+      <div class="packages-stack">
+        
+        <!-- Package 1 -->
+        <div class="package-card" onclick="assignPackage(this, '20-25 Leads for R1250/mo')">
+          <h4>Starter Plan</h4>
+          <span class="leads-count">20 - 25 Leads</span>
+          <div class="price-tag">R1,250<span>/mo</span></div>
+        </div>
+        
+        <!-- Package 2 -->
+        <div class="package-card" onclick="assignPackage(this, '35-40 Leads for R1750/mo')">
+          <h4>Growth Plan</h4>
+          <span class="leads-count">35 - 40 Leads</span>
+          <div class="price-tag">R1,750<span>/mo</span></div>
+        </div>
+        
+        <!-- Package 3 (Premium) -->
+        <div class="package-card premium" onclick="assignPackage(this, '40-60 Leads for R3000/mo')">
+          <div class="popular-badge">Most Growth</div>
+          <h4>Scaling Plan</h4>
+          <span class="leads-count">40 - 60 Leads</span>
+          <div class="price-tag">R3,000<span>/mo</span></div>
+        </div>
+
+      </div>
+      
+      <!-- Hidden Input tracking selection natively for validation -->
+      <input type="hidden" id="selectedPackage" required>
+      <button type="button" class="btn-action" onclick="navigateToStep(4)"> Next &rarr;</button>
+    </div>
+
+    <!-- STEP 4: Minimal Contact Info -->
+    <div class="form-step" id="step4">
+      <h3>Contact Information</h3>
+      <div class="input-group">
+        <label for="fullName">Your Name</label>
+        <input type="text" id="fullName" required placeholder="John Doe">
+      </div>
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required placeholder="john@yourcompany.co.za">
+      </div>
+      <button type="submit" class="btn-action btn-submit">Submit Request</button>
+    </div>
+
+  </form>
+</div>
+
+<script>
+  let activeStep = 1;
+  const maxSteps = 4;
+
+  function navigateToStep(targetStep) {
+    // 1. Run basic browser HTML validation checks on the current visible fields
+    const currentContainer = document.getElementById(`step${activeStep}`);
+    const inputFields = currentContainer.querySelectorAll('input, textarea');
+    let isStepValid = true;
+
+    inputFields.forEach(input => {
+      if (!input.checkValidity()) {
+        input.reportValidity();
+        isStepValid = false;
+      }
+    });
+
+    // 2. Specialized check for the package screen
+    if (activeStep === 3 && !document.getElementById('selectedPackage').value) {
+      alert("Please choose a budget package to continue.");
+      isStepValid = false;
+    }
+
+    if (!isStepValid) return;
+
+    // 3. Switch step panels smoothly
+    currentContainer.classList.remove('form-step-active');
+    activeStep = targetStep;
+    document.getElementById(`step${activeStep}`).classList.add('form-step-active');
+    
+    // 4. Smooth dynamic animation for the top progress metric
+    const visualProgress = ((activeStep - 1) / (maxSteps - 1)) * 100;
+    document.getElementById('progressBar').style.width = `${visualProgress}%`;
+  }
+
+  function assignPackage(cardElement, stringCode) {
+    // Clear old chosen classes
+    document.querySelectorAll('.package-card').forEach(item => item.classList.remove('selected'));
+    
+    // Apply state to newly clicked element
+    cardElement.classList.add('selected');
+    
+    // Inject value into hidden field
+    document.getElementById('selectedPackage').value = stringCode;
+  }
+
+  function processFormSubmit(event) {
+    event.preventDefault();
+    
+    // Extracting all field data cleanly
+    const company = document.getElementById('companyName').value;
+    const city = document.getElementById('city').value;
+    const services = document.getElementById('services').value;
+    const chosenPackage = document.getElementById('selectedPackage').value;
+    const name = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+
+    // 1. Construct the message body beautifully with line breaks
+    const messageText = 
+      `Hi! I just filled out the lead form setup details:\n\n` +
+      `🏢 *Company Name:* ${company}\n` +
+      `📍 *City:* ${city}\n` +
+      `🛠️ *Services:* ${services}\n` +
+      `📦 *Selected Package:* ${chosenPackage}\n\n` +
+      `👤 *Contact Name:* ${name}\n` +
+      `✉️ *Email:* ${email}`;
+
+    // 2. Target South African phone number in international format (+27)
+    const formattedPhoneNumber = "27677062032";
+
+    // 3. Safely encode the message payload for URL compliance
+    const encodedMessage = encodeURIComponent(messageText);
+
+    // 4. Generate the API link and open it seamlessly in a new tab
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${formattedPhoneNumber}&text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
+  }
+</script>
+
+</body>
+</html>
