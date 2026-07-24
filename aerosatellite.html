@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSTV Installation Quotes</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    // Initialize Pixel
+    fbq('init', '1691705598716478');
+    
+    // Track PageView on load (Lead ONLY fires when button is clicked)
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1691705598716478&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <script>
+    function openWhatsApp() {
+      // 1. Fire Meta Pixel Lead event on button click
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
+
+      // 2. Pre-filled WhatsApp link (+27 71 694 1395)
+      const whatsappURL = "https://wa.me/27716941395?text=Hello%2C%20can%20I%20please%20get%20a%20quote%20for%20DSTV%20installation%20services%3F";
+
+      // 3. Short 300ms delay to give Pixel time to transmit signal
+      setTimeout(function() {
+        window.location.href = whatsappURL;
+      }, 300);
+    }
+  </script>
+</head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-align: center; padding: 20% 20px; background-color: #f4f6f8; color: #333;">
+
+  <div style="max-width: 400px; margin: 0 auto; background: #ffffff; padding: 32px 24px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+    
+    <!-- Header Icon -->
+    <div style="font-size: 42px; margin-bottom: 12px;">📡</div>
+    
+    <!-- Title & Subtitle -->
+    <h2 style="margin: 0 0 8px 0; color: #111; font-size: 22px;">DSTV Installation Quotes</h2>
+    <p style="color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 24px;">
+      Tap below to chat directly with our technician on WhatsApp and get your quote.
+    </p>
+    
+    <!-- Action Button -->
+    <button onclick="openWhatsApp()" 
+            style="width: 100%; background-color: #25D366; color: #ffffff; border: none; font-size: 16px; font-weight: bold; padding: 16px; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); transition: background-color 0.2s;">
+      💬 Continue to WhatsApp
+    </button>
+
+  </div>
+
+</body>
+</html>
