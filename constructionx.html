@@ -388,7 +388,7 @@
         <div class="btn-group">
           <button type="button" class="btn btn-secondary" onclick="changeStep(-1)">Back</button>
           <button type="submit" class="btn btn-whatsapp">
-            <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Submit info
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Request Quote
           </button>
         </div>
       </div>
@@ -412,7 +412,6 @@
       document.querySelectorAll('#step1 .card-option').forEach(el => el.classList.remove('selected'));
       element.classList.add('selected');
       
-      // Fast auto-advance (120ms delay feels instantaneous while providing key feedback)
       setTimeout(() => changeStep(1), 120);
     }
 
@@ -446,7 +445,6 @@
       steps[currentStep - 1].classList.remove('active');
       currentStep += direction;
 
-      // Update progress bar
       const progressWidth = ((currentStep - 1) / 2) * 100;
       document.getElementById('progressIndicator').style.width = progressWidth + '%';
 
@@ -463,7 +461,7 @@
       formData.name = document.getElementById('fullName').value.trim();
       formData.phone = document.getElementById('phoneNumber').value.trim();
 
-      // 1. Fire Meta Pixel Lead Event with parameters
+      // Meta Pixel Lead Event
       if (typeof fbq === 'function') {
         fbq('track', 'Lead', {
           content_category: formData.service,
@@ -472,10 +470,11 @@
         });
       }
 
-      // 2. Prepare WhatsApp URL (Number: 0615182631 -> Int: 27615182631)
       const recipientNumber = '27615182631';
+      
+      // Formatted WhatsApp message with "NEW QUOTE REQUEST" header
       const textMessage = 
-`*NEW SERVICE REQUEST* 🛠️%0A
+`*NEW QUOTE REQUEST* 🛠️%0A
 *Service Required:* ${encodeURIComponent(formData.service)}%0A
 *Timing:* ${encodeURIComponent(formData.timing)}%0A
 *Location:* ${encodeURIComponent(formData.location)}%0A
@@ -486,7 +485,6 @@
 
       const whatsappURL = `https://wa.me/${recipientNumber}?text=${textMessage}`;
 
-      // 3. Open WhatsApp instantly
       window.open(whatsappURL, '_blank');
     }
   </script>
