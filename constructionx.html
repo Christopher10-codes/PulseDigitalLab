@@ -25,12 +25,12 @@
 
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
+
   <style>
     :root {
-      --primary: #25d366; /* WhatsApp Green */
+      --primary: #25d366;
       --primary-hover: #1ebd56;
-      --secondary: #0284c7; /* Water Blue */
+      --secondary: #0284c7;
       --bg-dark: #0f172a;
       --card-bg: #1e293b;
       --card-border: #334155;
@@ -65,7 +65,6 @@
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
     }
 
-    /* Response Time Badge */
     .response-badge {
       background: rgba(37, 211, 102, 0.15);
       border: 1px solid var(--primary);
@@ -80,7 +79,17 @@
       margin-bottom: 20px;
     }
 
-    /* Progress Indicator */
+    .trust-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin-bottom: 18px;
+    }
+
+    .trust-line i { color: var(--secondary); }
+
     .progress-bar {
       display: flex;
       justify-content: space-between;
@@ -133,11 +142,7 @@
       color: white;
     }
 
-    /* Form Steps */
-    .step {
-      display: none;
-    }
-
+    .step { display: none; }
     .step.active {
       display: block;
       animation: fadeIn 0.25s ease-out;
@@ -148,10 +153,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    h2 {
-      font-size: 1.4rem;
-      margin-bottom: 8px;
-    }
+    h2 { font-size: 1.4rem; margin-bottom: 8px; }
 
     p.subtext {
       color: var(--text-muted);
@@ -159,7 +161,6 @@
       margin-bottom: 20px;
     }
 
-    /* Option Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -167,9 +168,7 @@
       margin-bottom: 20px;
     }
 
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
 
     .card-option {
       background-color: rgba(255, 255, 255, 0.03);
@@ -186,10 +185,12 @@
       user-select: none;
     }
 
-    .card-option i {
-      font-size: 1.5rem;
-      color: var(--secondary);
+    .card-option:focus-visible {
+      outline: 2px solid var(--secondary);
+      outline-offset: 2px;
     }
+
+    .card-option i { font-size: 1.5rem; color: var(--secondary); }
 
     .card-option:hover {
       border-color: var(--secondary);
@@ -201,14 +202,38 @@
       background-color: rgba(37, 211, 102, 0.1);
     }
 
-    .card-option.selected i {
-      color: var(--primary);
-    }
+    .card-option.selected i { color: var(--primary); }
 
-    /* Inputs */
-    .input-group {
+    /* Suburb chips (smaller, single-line, non-icon) */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-bottom: 16px;
     }
+
+    .chip {
+      padding: 10px 16px;
+      border-radius: 50px;
+      border: 2px solid var(--card-border);
+      background-color: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      font-size: 0.88rem;
+      cursor: pointer;
+      user-select: none;
+      transition: border-color 0.15s, background-color 0.15s;
+    }
+
+    .chip:hover { border-color: var(--secondary); }
+
+    .chip.selected {
+      border-color: var(--primary);
+      background-color: rgba(37, 211, 102, 0.12);
+    }
+
+    .input-group { margin-bottom: 16px; }
+
+    .input-group.hidden { display: none; }
 
     label {
       display: block;
@@ -229,11 +254,22 @@
       transition: border-color 0.15s;
     }
 
-    input:focus, textarea:focus {
-      border-color: var(--secondary);
+    input:focus, textarea:focus { border-color: var(--secondary); }
+
+    input.field-error, .chip-row.field-error {
+      border-color: #ef4444;
     }
 
-    /* Buttons */
+    .error-text {
+      color: #f87171;
+      font-size: 0.8rem;
+      margin-top: -10px;
+      margin-bottom: 14px;
+      display: none;
+    }
+
+    .error-text.visible { display: block; }
+
     .btn-group {
       display: flex;
       gap: 12px;
@@ -272,8 +308,37 @@
       font-weight: 700;
     }
 
-    .btn-whatsapp:hover {
-      background-color: var(--primary-hover);
+    .btn-whatsapp:hover { background-color: var(--primary-hover); }
+
+    .btn-whatsapp:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+
+    /* Confirmation state */
+    .confirm-box {
+      text-align: center;
+      padding: 10px 0 4px;
+    }
+
+    .confirm-box i {
+      font-size: 2.4rem;
+      color: var(--primary);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .confirm-box h2 { margin-bottom: 10px; }
+
+    .confirm-box p.subtext { margin-bottom: 22px; }
+
+    .fallback-link {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--secondary);
+      font-size: 0.9rem;
+      text-decoration: underline;
+      cursor: pointer;
     }
 
     @media (max-width: 480px) {
@@ -285,111 +350,97 @@
 <body>
 
   <div class="form-container">
-    <!-- Response Time Banner -->
     <div class="response-badge">
       <i class="fa-regular fa-clock"></i> We will respond within 10 minutes
     </div>
 
-    <!-- Progress Indicator -->
-    <div class="progress-bar">
+    <div class="progress-bar" id="progressBar">
       <div class="progress-step-indicator" id="progressIndicator"></div>
       <div class="step-dot active">1</div>
       <div class="step-dot">2</div>
-      <div class="step-dot">3</div>
     </div>
 
-    <form id="plumbingForm" onsubmit="handleFormSubmit(event)">
-      
+    <form id="plumbingForm" onsubmit="handleFormSubmit(event)" novalidate>
+
       <!-- STEP 1: Service Selection -->
       <div class="step active" id="step1">
         <h2>What service do you need?</h2>
         <p class="subtext">Select an option below to continue.</p>
-        
-        <div class="grid">
-          <div class="card-option" onclick="selectService(this, '💧 Leak / Burst Pipe')">
+
+        <div class="grid" role="group" aria-label="Service type">
+          <div class="card-option" tabindex="0" onclick="selectService(this, 'Leak / Burst Pipe')">
             <i class="fa-solid fa-droplet"></i>
             <span>Leak / Burst Pipe</span>
           </div>
-          <div class="card-option" onclick="selectService(this, '🚽 Blocked Toilet / Drain')">
+          <div class="card-option" tabindex="0" onclick="selectService(this, 'Blocked Toilet / Drain')">
             <i class="fa-solid fa-toilet"></i>
             <span>Blocked Toilet / Drain</span>
           </div>
-          <div class="card-option" onclick="selectService(this, '🚿 Geyser Problem')">
+          <div class="card-option" tabindex="0" onclick="selectService(this, 'Geyser Problem')">
             <i class="fa-solid fa-shower"></i>
             <span>Geyser Problem</span>
           </div>
-          <div class="card-option" onclick="selectService(this, '🔧 Plumbing Repair')">
+          <div class="card-option" tabindex="0" onclick="selectService(this, 'Plumbing Repair')">
             <i class="fa-solid fa-wrench"></i>
             <span>Plumbing Repair</span>
           </div>
-          <div class="card-option" onclick="selectService(this, '🏠 New Installation')">
+          <div class="card-option" tabindex="0" onclick="selectService(this, 'New Installation')">
             <i class="fa-solid fa-house"></i>
             <span>New Installation</span>
           </div>
-          <div class="card-option" onclick="selectService(this, '❓ Something Else')">
+          <div class="card-option" tabindex="0" onclick="selectService(this, 'Something Else')">
             <i class="fa-solid fa-circle-question"></i>
             <span>Something Else</span>
           </div>
         </div>
       </div>
 
-      <!-- STEP 2: Timing & Location -->
+      <!-- STEP 2: Location + Name (contact happens on WhatsApp itself) -->
       <div class="step" id="step2">
-        <h2>When & Where?</h2>
-        <p class="subtext">Help us locate and schedule your repair.</p>
+        <h2>Where should we send help?</h2>
+        <p class="subtext">This opens WhatsApp so you can chat with us directly.</p>
 
-        <label>When do you need the service?</label>
-        <div class="grid grid-3" style="margin-bottom: 16px;">
-          <div class="card-option timing-option" onclick="selectTiming(this, 'As soon as possible')">
-            <i class="fa-solid fa-bolt"></i>
-            <span>ASAP</span>
-          </div>
-          <div class="card-option timing-option" onclick="selectTiming(this, 'Next week')">
-            <i class="fa-regular fa-calendar-days"></i>
-            <span>Next Week</span>
-          </div>
-          <div class="card-option timing-option" onclick="selectTiming(this, 'Not sure yet')">
-            <i class="fa-regular fa-circle-question"></i>
-            <span>Not Sure</span>
-          </div>
+        <label>Your area</label>
+        <div class="chip-row" id="suburbChips" role="group" aria-label="Suburb">
+          <div class="chip" onclick="selectSuburb(this, 'Pretoria')">Pretoria</div>
+          <div class="chip" onclick="selectSuburb(this, 'Centurion')">Centurion</div>
+          <div class="chip" onclick="selectSuburb(this, 'Midrand')">Midrand</div>
+          <div class="chip" onclick="selectSuburb(this, 'Sandton')">Sandton</div>
+          <div class="chip" onclick="selectSuburb(this, 'Other')">Other area</div>
+        </div>
+        <p class="error-text" id="suburbError">Please select your area.</p>
+
+        <div class="input-group hidden" id="otherAreaGroup">
+          <label for="otherArea">Which suburb / area?</label>
+          <input type="text" id="otherArea" autocomplete="address-level2" placeholder="e.g., Kabega Park" />
         </div>
 
         <div class="input-group">
-          <label for="location">Where are you located? (Suburb / Area)</label>
-          <input type="text" id="location" placeholder="e.g., Sandton, Cape Town CBD..." required />
+          <label for="fullName">Your name</label>
+          <input type="text" id="fullName" autocomplete="name" placeholder="Enter your name" />
+          <p class="error-text" id="nameError">Please enter your name.</p>
         </div>
 
         <div class="input-group">
-          <label for="problemMessage">Brief message or issue description (Optional)</label>
-          <textarea id="problemMessage" rows="3" placeholder="Describe the problem..."></textarea>
+          <label for="problemMessage">Anything we should know? (optional)</label>
+          <textarea id="problemMessage" rows="2" placeholder="Describe the problem..."></textarea>
         </div>
 
         <div class="btn-group">
           <button type="button" class="btn btn-secondary" onclick="changeStep(-1)">Back</button>
-          <button type="button" class="btn btn-whatsapp" style="color:#fff; background:var(--secondary);" onclick="validateAndNext(2)">Next Step</button>
+          <button type="submit" class="btn btn-whatsapp" id="submitBtn">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Request Quote
+          </button>
         </div>
       </div>
 
-      <!-- STEP 3: Contact Details -->
+      <!-- STEP 3 (shown after submit): confirmation / fallback -->
       <div class="step" id="step3">
-        <h2>Who are we reaching out to?</h2>
-        <p class="subtext">Provide your contact details so we can get in touch.</p>
-
-        <div class="input-group">
-          <label for="fullName">Your Name</label>
-          <input type="text" id="fullName" placeholder="Enter your full name" required />
-        </div>
-
-        <div class="input-group">
-          <label for="phoneNumber">Phone Number</label>
-          <input type="tel" id="phoneNumber" placeholder="e.g., 082 123 4567" required />
-        </div>
-
-        <div class="btn-group">
-          <button type="button" class="btn btn-secondary" onclick="changeStep(-1)">Back</button>
-          <button type="submit" class="btn btn-whatsapp">
-            <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Request Quote
-          </button>
+        <div class="confirm-box">
+          <i class="fa-brands fa-whatsapp"></i>
+          <h2>Opening WhatsApp...</h2>
+          <p class="subtext">If it doesn't open automatically, tap below.</p>
+          <a class="fallback-link" id="fallbackLink" target="_blank" rel="noopener">Open WhatsApp manually</a>
         </div>
       </div>
 
@@ -398,94 +449,174 @@
 
   <script>
     let currentStep = 1;
+    const TOTAL_STEPS = 2; // progress bar only reflects the 2 input steps
     const formData = {
       service: '',
-      timing: '',
-      location: '',
+      suburb: '',
       message: '',
-      name: '',
-      phone: ''
+      name: ''
     };
 
     function selectService(element, serviceValue) {
       formData.service = serviceValue;
       document.querySelectorAll('#step1 .card-option').forEach(el => el.classList.remove('selected'));
       element.classList.add('selected');
-      
       setTimeout(() => changeStep(1), 120);
     }
 
-    function selectTiming(element, timingValue) {
-      formData.timing = timingValue;
-      document.querySelectorAll('.timing-option').forEach(el => el.classList.remove('selected'));
+    function selectSuburb(element, suburbValue) {
+      formData.suburb = suburbValue;
+      document.querySelectorAll('#suburbChips .chip').forEach(el => el.classList.remove('selected'));
       element.classList.add('selected');
-    }
+      document.getElementById('suburbChips').classList.remove('field-error');
+      document.getElementById('suburbError').classList.remove('visible');
 
-    function validateAndNext(fromStep) {
-      if (fromStep === 2) {
-        if (!formData.timing) {
-          alert('Please select when you need the service.');
-          return;
-        }
-        const locInput = document.getElementById('location').value.trim();
-        if (!locInput) {
-          alert('Please enter your suburb or area.');
-          return;
-        }
-        formData.location = locInput;
-        formData.message = document.getElementById('problemMessage').value.trim();
+      const otherGroup = document.getElementById('otherAreaGroup');
+      if (suburbValue === 'Other') {
+        otherGroup.classList.remove('hidden');
+        document.getElementById('otherArea').focus();
+      } else {
+        otherGroup.classList.add('hidden');
       }
-      changeStep(1);
     }
 
     function changeStep(direction) {
       const steps = document.querySelectorAll('.step');
-      const dots = document.querySelectorAll('.step-dot');
-      
       steps[currentStep - 1].classList.remove('active');
       currentStep += direction;
-
-      const progressWidth = ((currentStep - 1) / 2) * 100;
-      document.getElementById('progressIndicator').style.width = progressWidth + '%';
-
-      dots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx < currentStep);
-      });
-
       steps[currentStep - 1].classList.add('active');
+
+      // Progress bar only covers steps 1-2; hide it on the confirmation screen
+      const progressBar = document.getElementById('progressBar');
+      if (currentStep > TOTAL_STEPS) {
+        progressBar.style.display = 'none';
+      } else {
+        const dots = document.querySelectorAll('.step-dot');
+        const progressWidth = ((currentStep - 1) / (TOTAL_STEPS - 1)) * 100;
+        document.getElementById('progressIndicator').style.width = progressWidth + '%';
+        dots.forEach((dot, idx) => dot.classList.toggle('active', idx < currentStep));
+      }
     }
+
+    function showFieldError(el, errorEl) {
+      el.classList.add('field-error');
+      errorEl.classList.add('visible');
+    }
+
+    function clearFieldError(el, errorEl) {
+      el.classList.remove('field-error');
+      errorEl.classList.remove('visible');
+    }
+
+    function validate() {
+      let valid = true;
+      const suburbChips = document.getElementById('suburbChips');
+      const suburbError = document.getElementById('suburbError');
+      const nameInput = document.getElementById('fullName');
+      const nameError = document.getElementById('nameError');
+
+      if (!formData.suburb) {
+        showFieldError(suburbChips, suburbError);
+        valid = false;
+      } else {
+        clearFieldError(suburbChips, suburbError);
+      }
+
+      if (formData.suburb === 'Other' && !document.getElementById('otherArea').value.trim()) {
+        document.getElementById('otherArea').focus();
+        valid = false;
+      }
+
+      if (!nameInput.value.trim()) {
+        showFieldError(nameInput, nameError);
+        valid = false;
+      } else {
+        clearFieldError(nameInput, nameError);
+      }
+
+      return valid;
+    }
+
+    // Rough relative value per service type, useful for optimizing toward
+    // higher-intent leads once enough conversion volume has been collected.
+    const SERVICE_VALUE = {
+      'Leak / Burst Pipe': 150,
+      'Geyser Problem': 150,
+      'Blocked Toilet / Drain': 100,
+      'Plumbing Repair': 100,
+      'New Installation': 120,
+      'Something Else': 60
+    };
 
     function handleFormSubmit(event) {
       event.preventDefault();
 
-      formData.name = document.getElementById('fullName').value.trim();
-      formData.phone = document.getElementById('phoneNumber').value.trim();
+      if (!validate()) return;
 
-      // Meta Pixel Lead Event
+      formData.name = document.getElementById('fullName').value.trim();
+      formData.message = document.getElementById('problemMessage').value.trim();
+      if (formData.suburb === 'Other') {
+        const other = document.getElementById('otherArea').value.trim();
+        formData.suburb = other || 'Other';
+      }
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+
+      const recipientNumber = '27615182631';
+
+      const messageBody =
+`*NEW QUOTE REQUEST*
+*Service Required:* ${formData.service}
+*Area:* ${formData.suburb}
+*Message:* ${formData.message || 'N/A'}
+
+*CLIENT DETAILS*
+*Name:* ${formData.name}`;
+
+      const encodedText = encodeURIComponent(messageBody);
+      const whatsappURL = `https://wa.me/${recipientNumber}?text=${encodedText}`;
+      const whatsappScheme = `whatsapp://send?phone=${recipientNumber}&text=${encodedText}`;
+      document.getElementById('fallbackLink').href = whatsappURL;
+
+      changeStep(1); // move to confirmation step
+
+      // Fire the Pixel Lead event with richer signal, then give it a brief
+      // moment to actually send before navigating away.
       if (typeof fbq === 'function') {
         fbq('track', 'Lead', {
           content_category: formData.service,
-          status: formData.timing,
-          city: formData.location
+          content_name: formData.suburb,
+          value: SERVICE_VALUE[formData.service] || 60,
+          currency: 'ZAR'
         });
       }
 
-      const recipientNumber = '27615182631';
-      
-      // Formatted WhatsApp message with "NEW QUOTE REQUEST" header
-      const textMessage = 
-`*NEW QUOTE REQUEST* 🛠️%0A
-*Service Required:* ${encodeURIComponent(formData.service)}%0A
-*Timing:* ${encodeURIComponent(formData.timing)}%0A
-*Location:* ${encodeURIComponent(formData.location)}%0A
-*Message:* ${encodeURIComponent(formData.message || 'N/A')}%0A%0A
-*CLIENT DETAILS*%0A
-*Name:* ${encodeURIComponent(formData.name)}%0A
-*Phone:* ${encodeURIComponent(formData.phone)}`;
+      setTimeout(() => {
+        openWhatsApp(whatsappScheme, whatsappURL);
+      }, 250);
+    }
 
-      const whatsappURL = `https://wa.me/${recipientNumber}?text=${textMessage}`;
+    // Try the native app scheme first (better odds of leaving an in-app
+    // browser); if the page hasn't been backgrounded shortly after, the
+    // scheme was likely blocked, so fall back to the wa.me web link.
+    // Note: iOS in-app browsers (Instagram/Facebook) often block this
+    // handoff entirely by platform design — there is no JS-only fix that
+    // guarantees escape there. This gives the best realistic odds, with
+    // the visible "Open WhatsApp manually" link as the safety net.
+    function openWhatsApp(schemeURL, webURL) {
+      let appOpened = false;
+      const markOpened = () => { if (document.hidden) appOpened = true; };
+      document.addEventListener('visibilitychange', markOpened);
 
-      window.open(whatsappURL, '_blank');
+      window.location.href = schemeURL;
+
+      setTimeout(() => {
+        document.removeEventListener('visibilitychange', markOpened);
+        if (!appOpened) {
+          window.location.href = webURL;
+        }
+      }, 600);
     }
   </script>
 </body>
