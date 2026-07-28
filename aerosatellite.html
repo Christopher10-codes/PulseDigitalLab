@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DSTV Installation Quotes</title>
+  <title>Connecting to Aerosatellite...</title>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -19,7 +19,7 @@
     // Initialize Pixel
     fbq('init', '1691705598716478');
     
-    // Track PageView on load (Lead ONLY fires when button is clicked)
+    // Track PageView immediately on load
     fbq('track', 'PageView');
   </script>
   <noscript>
@@ -29,41 +29,84 @@
   <!-- End Meta Pixel Code -->
 
   <script>
-    function openWhatsApp() {
-      // 1. Fire Meta Pixel Lead event on button click
+    // Pre-filled WhatsApp Link for Aerosatellite (+27 71 694 1395)
+    const targetWhatsAppURL = "https://wa.me/27716941395?text=Hello%20Aerosatellite%2C%20can%20I%20please%20get%20a%20quote%20for%20DSTV%20installation%20services%3F";
+
+    // 1.5-Second Intent Delay: Fires Lead & redirects ONLY if the user doesn't bounce immediately
+    setTimeout(function() {
       if (typeof fbq === 'function') {
         fbq('track', 'Lead');
       }
-
-      // 2. Pre-filled WhatsApp link (+27 71 694 1395)
-      const whatsappURL = "https://wa.me/27716941395?text=Hello%2C%20can%20I%20please%20get%20a%20quote%20for%20DSTV%20installation%20services%3F";
-
-      // 3. Short 300ms delay to give Pixel time to transmit signal
-      setTimeout(function() {
-        window.location.href = whatsappURL;
-      }, 300);
-    }
+      
+      // Execute Redirect to WhatsApp
+      window.location.href = targetWhatsAppURL;
+    }, 1500);
   </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+    .card {
+      max-width: 380px;
+      width: 100%;
+      background: #ffffff;
+      padding: 32px 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #25D366;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .fallback-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #25D366;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 12px 20px;
+      border-radius: 8px;
+    }
+  </style>
 </head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-align: center; padding: 20% 20px; background-color: #f4f6f8; color: #333;">
+<body>
 
-  <div style="max-width: 400px; margin: 0 auto; background: #ffffff; padding: 32px 24px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-    
-    <!-- Header Icon -->
-    <div style="font-size: 42px; margin-bottom: 12px;">📡</div>
-    
-    <!-- Title & Subtitle -->
-    <h2 style="margin: 0 0 8px 0; color: #111; font-size: 22px;">DSTV Installation Quotes</h2>
-    <p style="color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 24px;">
-      Tap below to chat directly with our technician on WhatsApp and get your quote.
+  <div class="card">
+    <div class="spinner"></div>
+    <h2 style="font-size: 20px; margin-bottom: 8px; color: #111;">Connecting to Aerosatellite...</h2>
+    <p style="font-size: 14px; color: #666; line-height: 1.4;">
+      Opening WhatsApp so you can request your DSTV quote.
     </p>
-    
-    <!-- Action Button -->
-    <button onclick="openWhatsApp()" 
-            style="width: 100%; background-color: #25D366; color: #ffffff; border: none; font-size: 16px; font-weight: bold; padding: 16px; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); transition: background-color 0.2s;">
-      💬 Continue to WhatsApp
-    </button>
 
+    <!-- Fallback link in case OS auto-redirect is delayed -->
+    <a href="https://wa.me/27716941395?text=Hello%20Aerosatellite%2C%20can%20I%20please%20get%20a%20quote%20for%20DSTV%20installation%20services%3F" class="fallback-btn">
+      Tap here if WhatsApp doesn't open
+    </a>
   </div>
 
 </body>
