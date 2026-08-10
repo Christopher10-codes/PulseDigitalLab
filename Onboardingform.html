@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Pulse Digital Lab — Website Onboarding</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root{
+  --ink:#10241F;
+  --ink-soft:#537367;
+  --paper:#FBF6EC;
+  --paper-soft:#F1E9D8;
+  --card:#FFFFFF;
+  --lime:#C6FF5E;
+  --lime-deep:#7DBA1E;
+  --coral:#FF6F5B;
+  --coral-deep:#D6412C;
+  --line:rgba(16,36,31,0.14);
+  --shadow:0 18px 40px -20px rgba(16,36,31,0.35);
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--ink);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+.mono{font-family:'IBM Plex Mono',monospace;}
+.display{font-family:'Space Grotesk',sans-serif;}
+
+/* ---------- background atmosphere ---------- */
+.atmosphere{
+  position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+}
+.blob{
+  position:absolute;border-radius:50%;filter:blur(60px);opacity:0.35;
+  animation:drift 22s ease-in-out infinite;
+}
+.blob.b1{width:320px;height:320px;background:var(--lime);top:-100px;left:-90px;animation-delay:0s;}
+.blob.b2{width:280px;height:280px;background:var(--coral);bottom:-110px;right:-70px;animation-delay:-8s;}
+.blob.b3{width:200px;height:200px;background:#2E5C4E;top:40%;right:10%;animation-delay:-14s;}
+@keyframes drift{
+  0%,100%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(30px,-40px) scale(1.08);}
+}
+
+/* ---------- app shell ---------- */
+.app{
+  position:relative;z-index:1;
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:24px 16px 48px;
+}
+
+/* ---------- welcome screen ---------- */
+.welcome{
+  max-width:480px;width:100%;text-align:center;color:var(--paper);
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+  padding:36px 6px 12px;
+  opacity:0;transform:translateY(18px);
+  animation:riseIn 0.8s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes riseIn{to{opacity:1;transform:translateY(0);}}
+
+.badge-pulse{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(198,255,94,0.12);
+  border:1px solid rgba(198,255,94,0.4);
+  color:var(--lime);
+  padding:7px 16px;border-radius:999px;
+  font-size:12px;letter-spacing:0.04em;text-transform:uppercase;
+}
+.dot-pulse{
+  width:8px;height:8px;border-radius:50%;background:var(--lime);
+  animation:pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:1;}
+  50%{transform:scale(1.6);opacity:0.5;}
+}
+
+.welcome h1{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(26px,7vw,38px);line-height:1.12;margin:0;
+  letter-spacing:-0.01em;
+}
+.welcome h1 span{color:var(--lime);}
+.welcome p.sub{
+  font-size:15px;line-height:1.5;color:rgba(251,246,236,0.78);
+  max-width:400px;margin:0;
+}
+
+.package-card{
+  margin-top:4px;width:100%;max-width:360px;
+  background:linear-gradient(180deg,rgba(251,246,236,0.06),rgba(251,246,236,0.02));
+  border:1px solid rgba(251,246,236,0.16);
+  border-radius:16px;padding:18px 20px;
+  text-align:left;
+}
+.package-card .plabel{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--coral);margin:0 0 4px;}
+.package-card .pname{font-size:18px;font-weight:600;margin:0 0 8px;color:var(--paper);}
+.package-card .prow{display:flex;align-items:baseline;gap:8px;}
+.package-card .pprice{font-size:24px;font-weight:700;color:var(--lime);}
+.package-card .pterm{font-size:13px;color:rgba(251,246,236,0.65);}
+
+.cta-btn{
+  appearance:none;border:none;cursor:pointer;
+  background:var(--lime);color:var(--ink);
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15.5px;
+  padding:15px 30px;border-radius:999px;width:100%;max-width:360px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:0 12px 28px -10px rgba(198,255,94,0.55);
+  transition:transform 0.25s cubic-bezier(.2,.8,.2,1), box-shadow 0.25s;
+  margin-top:4px;
+}
+.cta-btn:active{transform:scale(0.98);}
+.cta-btn .arrow{transition:transform 0.25s;}
+.microcopy{font-size:12px;color:rgba(251,246,236,0.5);}
+
+/* ---------- form stage ---------- */
+.formstage{
+  width:100%;max-width:520px;display:none;flex-direction:column;gap:20px;
+}
+.formstage.active{display:flex;animation:riseIn 0.6s ease forwards;}
+
+/* progress bar */
+.progress-wrap{width:100%;}
+.progress-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.progress-step-label{color:var(--paper);font-size:12.5px;letter-spacing:0.03em;}
+.progress-step-label b{color:var(--lime);}
+.progress-pct{color:rgba(251,246,236,0.55);font-size:12.5px;}
+.progress-track{
+  width:100%;height:7px;background:rgba(251,246,236,0.12);
+  border-radius:999px;overflow:hidden;position:relative;
+}
+.progress-fill{
+  height:100%;width:0%;border-radius:999px;
+  background:linear-gradient(90deg,var(--coral),var(--lime));
+  transition:width 0.6s cubic-bezier(.2,.8,.2,1);
+  position:relative;
+}
+.progress-fill::after{
+  content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%);
+  width:13px;height:13px;border-radius:50%;background:var(--lime);
+  box-shadow:0 0 0 4px rgba(198,255,94,0.25);
+}
+
+/* form card */
+.card{
+  background:var(--card);border-radius:18px;padding:26px 22px 24px;
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+  min-height:380px;
+}
+.step-panel{display:none;flex-direction:column;gap:20px;}
+.step-panel.active{display:flex;animation:slideIn 0.45s cubic-bezier(.2,.8,.2,1);}
+@keyframes slideIn{from{opacity:0;transform:translateX(18px);}to{opacity:1;transform:translateX(0);}}
+
+.step-eyebrow{font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--coral-deep);margin:0;}
+.step-title{font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600;margin:2px 0 0;color:var(--ink);}
+
+.field{display:flex;flex-direction:column;gap:7px;}
+.field label{font-size:13px;font-weight:600;color:var(--ink);}
+.field .hint{font-size:12px;color:var(--ink-soft);margin-top:-3px;}
+input[type=text],input[type=tel],input[type=email],input[type=time]{
+  width:100%;border:1.5px solid var(--line);border-radius:12px;
+  padding:13px 14px;font-size:16px;font-family:'Inter',sans-serif;color:var(--ink);
+  background:var(--paper);transition:border-color 0.2s, box-shadow 0.2s;
+}
+input:focus{outline:none;border-color:var(--lime-deep);box-shadow:0 0 0 4px rgba(198,255,94,0.28);}
+input::placeholder{color:#A9A296;}
+
+.tag-input-row{display:flex;gap:8px;}
+.tag-input-row input{flex:1;min-width:0;}
+.add-btn{
+  border:none;background:var(--ink);color:var(--paper);border-radius:12px;
+  padding:0 16px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;cursor:pointer;
+  transition:transform 0.15s;flex-shrink:0;
+}
+.add-btn:active{transform:scale(0.96);}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;min-height:6px;}
+.chip{
+  background:var(--paper-soft);border:1px solid var(--line);color:var(--ink);
+  padding:7px 8px 7px 14px;border-radius:999px;font-size:13px;font-weight:500;
+  display:inline-flex;align-items:center;gap:8px;
+  animation:chipIn 0.3s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes chipIn{from{opacity:0;transform:scale(0.7);}to{opacity:1;transform:scale(1);}}
+.chip button{
+  border:none;background:rgba(16,36,31,0.1);color:var(--ink);
+  width:18px;height:18px;border-radius:50%;cursor:pointer;font-size:11px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+.day-row{display:flex;flex-wrap:wrap;gap:7px;}
+.day-pill{
+  border:1.5px solid var(--line);background:var(--paper);color:var(--ink-soft);
+  padding:8px 12px;border-radius:999px;font-size:12.5px;font-weight:600;cursor:pointer;
+  transition:all 0.2s;
+}
+.day-pill.on{background:var(--ink);border-color:var(--ink);color:var(--lime);}
+.day-pill:active{transform:scale(0.94);}
+.preset-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px;}
+.preset-btn{
+  border:1px dashed var(--line);background:transparent;color:var(--ink-soft);
+  padding:6px 11px;border-radius:999px;font-size:11.5px;cursor:pointer;
+}
+
+.logo-options{display:flex;flex-direction:column;gap:10px;}
+.logo-card{
+  border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;
+  cursor:pointer;display:flex;align-items:center;gap:12px;transition:all 0.2s;
+}
+.logo-card.selected{border-color:var(--ink);background:var(--paper-soft);box-shadow:0 6px 16px -8px rgba(16,36,31,0.3);}
+.logo-icon{
+  width:36px;height:36px;border-radius:50%;background:var(--paper);
+  display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;
+  border:1.5px solid var(--line);
+}
+.logo-card.selected .logo-icon{background:var(--lime);border-color:var(--lime);}
+.logo-text b{display:block;font-size:14px;color:var(--ink);}
+.logo-text span{font-size:12px;color:var(--ink-soft);}
+
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:4px;gap:10px;}
+.btn-back{
+  border:none;background:transparent;color:var(--ink-soft);font-size:14px;font-weight:600;
+  cursor:pointer;padding:10px 4px;display:flex;align-items:center;gap:6px;flex-shrink:0;
+}
+.btn-continue{
+  border:none;cursor:pointer;background:var(--ink);color:var(--lime);
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;
+  padding:14px 24px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;
+  transition:transform 0.2s,opacity 0.2s;flex:1;justify-content:center;
+}
+.btn-continue:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+
+/* toast personalization bubble */
+.toast{
+  position:absolute;left:22px;right:22px;bottom:-70px;
+  background:var(--ink);color:var(--paper);padding:13px 16px;border-radius:14px;
+  font-size:13.5px;line-height:1.45;box-shadow:0 14px 30px -12px rgba(16,36,31,0.5);
+  opacity:0;transform:translateY(10px);transition:all 0.4s cubic-bezier(.2,.8,.2,1);
+  pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateY(-84px);}
+.toast b{color:var(--lime);}
+
+/* final screen */
+.final{max-width:480px;width:100%;color:var(--paper);text-align:center;}
+.final h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,6vw,28px);margin:0 0 6px;}
+.final h2 span{color:var(--lime);}
+.final p.lead{color:rgba(251,246,236,0.75);font-size:14.5px;margin:0 0 22px;}
+
+.recap-card{
+  background:rgba(251,246,236,0.06);border:1px solid rgba(251,246,236,0.14);
+  border-radius:16px;padding:6px 20px;text-align:left;margin-bottom:20px;
+}
+.recap-row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid rgba(251,246,236,0.1);font-size:13.5px;}
+.recap-row:last-child{border-bottom:none;}
+.recap-row .k{color:rgba(251,246,236,0.55);}
+.recap-row .v{color:var(--paper);font-weight:600;text-align:right;max-width:58%;}
+
+.final-actions{display:flex;flex-direction:column;gap:10px;align-items:center;}
+.btn-submit{
+  appearance:none;border:none;cursor:pointer;width:100%;max-width:360px;
+  background:var(--lime);color:var(--ink);
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;
+  padding:16px 28px;border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:0 12px 28px -10px rgba(198,255,94,0.55);
+  transition:transform 0.2s;
+}
+.btn-submit:active{transform:scale(0.98);}
+.btn-ghost{
+  border:1.5px solid rgba(251,246,236,0.3);background:transparent;color:var(--paper);
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px;
+  padding:11px 20px;border-radius:999px;cursor:pointer;transition:all 0.2s;
+}
+
+@media(max-width:480px){
+  .two-col{grid-template-columns:1fr;}
+  .card{padding:22px 16px 20px;}
+  .package-card{padding:16px;}
+}
+</style>
+</head>
+<body>
+
+<div class="atmosphere">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+
+<div class="app">
+
+  <!-- WELCOME -->
+  <section class="welcome" id="welcomeScreen">
+    <div class="badge-pulse"><span class="dot-pulse"></span>Pulse Digital Lab</div>
+    <h1>Let's get you <span>online.</span></h1>
+    <p class="sub">Takes about 3 minutes. Tell us about your business and we'll take it from there.</p>
+
+    <div class="package-card">
+      <p class="plabel">Your package</p>
+      <p class="pname">The Pulse Launchpad ✦</p>
+      <div class="prow">
+        <span class="pprice">R250</span>
+        <span class="pterm">/ month · 8 months</span>
+      </div>
+    </div>
+
+    <button class="cta-btn" id="startBtn">Let's build my website <span class="arrow">→</span></button>
+    <p class="microcopy">No payment needed here — just tell us about your business.</p>
+  </section>
+
+  <!-- FORM STAGE -->
+  <div class="formstage" id="formStage">
+    <div class="progress-wrap">
+      <div class="progress-top">
+        <span class="progress-step-label mono">Step <b id="stepNum">1</b> of 4</span>
+        <span class="progress-pct mono" id="stepPct">25%</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="card">
+
+      <!-- STEP 1 -->
+      <div class="step-panel active" data-step="1">
+        <div>
+          <p class="step-eyebrow mono">Let's start with the basics</p>
+          <h3 class="step-title">Tell us who you are</h3>
+        </div>
+        <div class="field">
+          <label for="bizName">Business name</label>
+          <input type="text" id="bizName" placeholder="e.g. Sparkle Clean">
+        </div>
+        <div class="field">
+          <label for="bizLocation">Location / areas you serve</label>
+          <input type="text" id="bizLocation" placeholder="e.g. Gqeberha and surrounding suburbs">
+          <span class="hint">Where are you based, and where do your clients come from?</span>
+        </div>
+        <div class="nav-row" style="justify-content:flex-end;">
+          <button class="btn-continue" id="continue1" disabled>Continue <span>→</span></button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-panel" data-step="2">
+        <div>
+          <p class="step-eyebrow mono">What you offer</p>
+          <h3 class="step-title">Services and contact</h3>
+        </div>
+        <div class="field">
+          <label for="serviceInput">Services your business provides</label>
+          <div class="tag-input-row">
+            <input type="text" id="serviceInput" placeholder="e.g. Deep cleaning">
+            <button class="add-btn" id="addServiceBtn">Add</button>
+          </div>
+          <span class="hint">Add each service one at a time — press enter or tap add.</span>
+          <div class="chip-row" id="serviceChips"></div>
+        </div>
+        <div class="field">
+          <label for="whatsapp">WhatsApp number</label>
+          <input type="tel" id="whatsapp" placeholder="e.g. 082 123 4567">
+        </div>
+        <div class="nav-row">
+          <button class="btn-back" data-back="1">← Back</button>
+          <button class="btn-continue" id="continue2" disabled>Continue <span>→</span></button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-panel" data-step="3">
+        <div>
+          <p class="step-eyebrow mono">Almost there</p>
+          <h3 class="step-title">Reach and hours</h3>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="e.g. hello@sparkleclean.co.za">
+        </div>
+        <div class="field">
+          <label>Operating hours</label>
+          <div class="preset-row">
+            <button class="preset-btn" data-preset="weekdays">Weekdays</button>
+            <button class="preset-btn" data-preset="weekdays-sat">Weekdays + Sat</button>
+            <button class="preset-btn" data-preset="everyday">Every day</button>
+            <button class="preset-btn" data-preset="clear">Clear</button>
+          </div>
+          <div class="day-row" id="dayRow"></div>
+          <div class="two-col" style="margin-top:6px;">
+            <div class="field">
+              <label for="opensAt" style="font-weight:500;font-size:12.5px;">Opens</label>
+              <input type="time" id="opensAt" value="08:00">
+            </div>
+            <div class="field">
+              <label for="closesAt" style="font-weight:500;font-size:12.5px;">Closes</label>
+              <input type="time" id="closesAt" value="17:00">
+            </div>
+          </div>
+        </div>
+        <div class="nav-row">
+          <button class="btn-back" data-back="2">← Back</button>
+          <button class="btn-continue" id="continue3" disabled>Continue <span>→</span></button>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step-panel" data-step="4">
+        <div>
+          <p class="step-eyebrow mono">Last question</p>
+          <h3 class="step-title">Do you have a logo?</h3>
+        </div>
+        <div class="logo-options" id="logoOptions">
+          <div class="logo-card" data-logo="yes">
+            <div class="logo-icon">✓</div>
+            <div class="logo-text"><b>Yes, I have one</b><span>I'll send our team the file to use</span></div>
+          </div>
+          <div class="logo-card" data-logo="no">
+            <div class="logo-icon">–</div>
+            <div class="logo-text"><b>No, not yet</b><span>We'll launch with a clean text-based look for now</span></div>
+          </div>
+          <div class="logo-card" data-logo="create">
+            <div class="logo-icon">✦</div>
+            <div class="logo-text"><b>Please create a new one for me</b><span>Our designers will craft one for you</span></div>
+          </div>
+        </div>
+        <div class="nav-row">
+          <button class="btn-back" data-back="3">← Back</button>
+          <button class="btn-continue" id="continue4" disabled>Finish <span>→</span></button>
+        </div>
+      </div>
+
+      <div class="toast" id="toast"></div>
+    </div>
+  </div>
+
+  <!-- FINAL SCREEN -->
+  <section class="final" id="finalScreen" style="display:none;">
+    <h2 id="finalHeadline">Here's your <span>summary</span></h2>
+    <p class="lead">Check everything below, then submit to send it straight to us.</p>
+
+    <div class="recap-card" id="recapCard"></div>
+
+    <div class="final-actions">
+      <button class="btn-submit" id="submitBtn">Submit my info <span>→</span></button>
+      <button class="btn-ghost" id="restartBtn">Start over</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const state = {
+  name:'', location:'', services:[], whatsapp:'', email:'',
+  days:{Mon:false,Tue:false,Wed:false,Thu:false,Fri:false,Sat:false,Sun:false},
+  opens:'08:00', closes:'17:00', logo:null
+};
+
+const DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+let currentStep = 1;
+const RECEIVER_NUMBER = '27677062032'; // 0677062032 in international format
+
+/* ---------- welcome -> form ---------- */
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  document.getElementById('welcomeScreen').style.display='none';
+  document.getElementById('formStage').classList.add('active');
+  updateProgress();
+});
+
+/* ---------- day pills ---------- */
+const dayRow = document.getElementById('dayRow');
+DAYS.forEach(d=>{
+  const pill = document.createElement('div');
+  pill.className='day-pill';
+  pill.textContent=d;
+  pill.dataset.day=d;
+  pill.addEventListener('click', ()=>{
+    state.days[d] = !state.days[d];
+    pill.classList.toggle('on', state.days[d]);
+    validateStep(3);
+  });
+  dayRow.appendChild(pill);
+});
+
+document.querySelectorAll('.preset-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const p = btn.dataset.preset;
+    DAYS.forEach(d=> state.days[d]=false);
+    if(p==='weekdays'){ ['Mon','Tue','Wed','Thu','Fri'].forEach(d=>state.days[d]=true); }
+    if(p==='weekdays-sat'){ ['Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d=>state.days[d]=true); }
+    if(p==='everyday'){ DAYS.forEach(d=>state.days[d]=true); }
+    document.querySelectorAll('.day-pill').forEach(pill=>{
+      pill.classList.toggle('on', state.days[pill.dataset.day]);
+    });
+    validateStep(3);
+  });
+});
+
+document.getElementById('opensAt').addEventListener('input', e=>{state.opens=e.target.value;});
+document.getElementById('closesAt').addEventListener('input', e=>{state.closes=e.target.value;});
+
+/* ---------- step 1 ---------- */
+document.getElementById('bizName').addEventListener('input', e=>{state.name=e.target.value.trim(); validateStep(1);});
+document.getElementById('bizLocation').addEventListener('input', e=>{state.location=e.target.value.trim(); validateStep(1);});
+
+/* ---------- step 2: services ---------- */
+const serviceInput = document.getElementById('serviceInput');
+const serviceChips = document.getElementById('serviceChips');
+function addService(){
+  const val = serviceInput.value.trim();
+  if(!val) return;
+  state.services.push(val);
+  serviceInput.value='';
+  renderChips();
+  validateStep(2);
+}
+document.getElementById('addServiceBtn').addEventListener('click', addService);
+serviceInput.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); addService(); } });
+function renderChips(){
+  serviceChips.innerHTML='';
+  state.services.forEach((s,i)=>{
+    const chip = document.createElement('span');
+    chip.className='chip';
+    chip.innerHTML = s + ' <button aria-label="remove">×</button>';
+    chip.querySelector('button').addEventListener('click', ()=>{
+      state.services.splice(i,1);
+      renderChips();
+      validateStep(2);
+    });
+    serviceChips.appendChild(chip);
+  });
+}
+document.getElementById('whatsapp').addEventListener('input', e=>{state.whatsapp=e.target.value.trim(); validateStep(2);});
+
+/* ---------- step 3 ---------- */
+document.getElementById('email').addEventListener('input', e=>{state.email=e.target.value.trim(); validateStep(3);});
+
+/* ---------- step 4: logo ---------- */
+document.querySelectorAll('.logo-card').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    document.querySelectorAll('.logo-card').forEach(c=>c.classList.remove('selected'));
+    card.classList.add('selected');
+    state.logo = card.dataset.logo;
+    validateStep(4);
+  });
+});
+
+/* ---------- validation ---------- */
+function validateStep(n){
+  if(n===1){
+    document.getElementById('continue1').disabled = !(state.name && state.location);
+  } else if(n===2){
+    document.getElementById('continue2').disabled = !(state.services.length>0 && state.whatsapp);
+  } else if(n===3){
+    const anyDay = Object.values(state.days).some(v=>v);
+    document.getElementById('continue3').disabled = !(state.email && anyDay);
+  } else if(n===4){
+    document.getElementById('continue4').disabled = !state.logo;
+  }
+}
+
+/* ---------- navigation ---------- */
+const messages = {
+  1: ()=> `<b>Wow, ${state.name || 'that'} is a great name!</b> You're going to have the best website in ${state.location || 'your area'}. 🚀`,
+  2: ()=> `Got it — we'll make sure people can reach ${state.name || 'your business'} on WhatsApp in one tap. 📱`,
+  3: ()=> `Perfect. Now everyone in ${state.location || 'your area'} will know exactly when you're open.`,
+  4: ()=> ({
+    yes:`Great — we'll use your existing logo to keep your branding consistent.`,
+    no:`No stress at all. Plenty of businesses launch clean and add a logo later.`,
+    create:`Love it. Our designers will craft you a fresh logo, included in your package. ✦`
+  }[state.logo])
+};
+
+function showToast(html){
+  const toast = document.getElementById('toast');
+  toast.innerHTML = html;
+  toast.classList.add('show');
+  setTimeout(()=> toast.classList.remove('show'), 2600);
+}
+
+document.querySelectorAll('.btn-continue').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const msgFn = messages[currentStep];
+    if(msgFn) showToast(msgFn());
+    setTimeout(()=>{
+      if(currentStep<4){ goToStep(currentStep+1); }
+      else { finish(); }
+    }, 550);
+  });
+});
+document.querySelectorAll('.btn-back').forEach(btn=>{
+  btn.addEventListener('click', ()=> goToStep(parseInt(btn.dataset.back)) );
+});
+
+function goToStep(n){
+  currentStep = n;
+  document.querySelectorAll('.step-panel').forEach(p=>{
+    p.classList.toggle('active', parseInt(p.dataset.step)===n);
+  });
+  updateProgress();
+}
+
+function updateProgress(){
+  const pct = Math.round((currentStep/4)*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('stepNum').textContent = currentStep;
+  document.getElementById('stepPct').textContent = pct+'%';
+}
+
+function formatTime(t){
+  if(!t) return '';
+  const [h,m] = t.split(':').map(Number);
+  const period = h>=12 ? 'PM':'AM';
+  const h12 = ((h+11)%12)+1;
+  return `${h12}:${m.toString().padStart(2,'0')} ${period}`;
+}
+
+/* ---------- finish ---------- */
+function finish(){
+  document.getElementById('formStage').classList.remove('active');
+  document.getElementById('formStage').style.display='none';
+  const finalScreen = document.getElementById('finalScreen');
+  finalScreen.style.display='block';
+  finalScreen.style.animation='riseIn 0.7s ease forwards';
+
+  const openDays = DAYS.filter(d=>state.days[d]);
+  const logoLabel = {yes:'Has a logo ready', no:'No logo yet', create:'Wants a new logo designed'}[state.logo] || '—';
+
+  const rows = [
+    ['Business name', state.name || '—'],
+    ['Location / areas served', state.location || '—'],
+    ['Services', state.services.join(', ') || '—'],
+    ['WhatsApp', state.whatsapp || '—'],
+    ['Email', state.email || '—'],
+    ['Operating hours', openDays.length ? `${openDays.join(', ')} · ${formatTime(state.opens)}–${formatTime(state.closes)}` : '—'],
+    ['Logo', logoLabel],
+    ['Package', 'The Pulse Launchpad — R250/month × 8 months']
+  ];
+  document.getElementById('recapCard').innerHTML = rows.map(([k,v])=>
+    `<div class="recap-row"><span class="k">${k}</span><span class="v">${v}</span></div>`
+  ).join('');
+}
+
+/* ---------- submit to whatsapp ---------- */
+document.getElementById('submitBtn').addEventListener('click', ()=>{
+  const openDays = DAYS.filter(d=>state.days[d]);
+  const logoLabel = {yes:'Has a logo ready', no:'No logo yet', create:'Wants a new logo designed'}[state.logo] || '—';
+
+  const message = [
+    'Hello! I just filled my form I am ready to Proceed.',
+    '',
+    `Business name: ${state.name || '—'}`,
+    `Location: ${state.location || '—'}`,
+    `Services: ${state.services.join(', ') || '—'}`,
+    `WhatsApp: ${state.whatsapp || '—'}`,
+    `Email: ${state.email || '—'}`,
+    `Hours: ${openDays.length ? openDays.join(', ') + ' · ' + formatTime(state.opens) + '–' + formatTime(state.closes) : '—'}`,
+    `Logo: ${logoLabel}`,
+    `Package: The Pulse Launchpad — R250/month x 8 months`
+  ].join('\n');
+
+  const url = `https://wa.me/${RECEIVER_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.location.href = url;
+});
+
+document.getElementById('restartBtn').addEventListener('click', ()=> location.reload());
+</script>
+</body>
+</html>
